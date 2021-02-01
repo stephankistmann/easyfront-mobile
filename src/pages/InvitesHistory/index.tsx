@@ -15,7 +15,7 @@ import {
 import { TouchableOpacity } from "react-native-gesture-handler";
 import { useNavigation } from "@react-navigation/native";
 
-const Invites: React.FC = () => {
+const InvitesHistory: React.FC = () => {
   const navigation = useNavigation();
 
   return (
@@ -31,17 +31,9 @@ const Invites: React.FC = () => {
               style={{ marginRight: 8, marginLeft: 8 }}
             />
             <Text style={{ fontWeight: "bold", marginRight: 8 }}>
-              Meus Convites
+              Histórico de Convites
             </Text>
-
-            <TouchableOpacity>
-              <Feather name="info" size={14} style={{ marginTop: 2 }} />
-            </TouchableOpacity>
           </View>
-          <History onPress={() => navigation.navigate("InvitesHistory")}>
-            <Text style={{ fontSize: 12 }}>Histórico</Text>
-            <Feather name="rotate-ccw" size={10} style={{ marginTop: 2 }} />
-          </History>
         </MainHeader>
         <Line />
         <InviteList>
@@ -70,4 +62,4 @@ const Invites: React.FC = () => {
   );
 };
 
-export default Invites;
+export default InvitesHistory;

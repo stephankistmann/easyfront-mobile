@@ -1,6 +1,5 @@
 import React, { useMemo } from "react";
 import { Text, Image, SafeAreaView } from "react-native";
-// import {  } from "@react-navigation/native";
 import {
   DrawerContentComponentProps,
   DrawerContentOptions,
@@ -27,13 +26,10 @@ interface ISideMenuProps
 const SideMenu: React.FC<ISideMenuProps> = ({ navigation, ...props }) => {
   const { user, signOut } = useAuth();
   const initials = useMemo(() => user.name.slice(0, 2).toUpperCase(), [user]);
-  // const routeName = props.state.key.split("-");
 
   const { state } = props;
   const { routes, index } = state;
   const focusedRoute = routes[index].name;
-
-  console.log(focusedRoute);
 
   return (
     <ScrollView>
@@ -73,17 +69,25 @@ const SideMenu: React.FC<ISideMenuProps> = ({ navigation, ...props }) => {
             navigation={navigation}
           />
           <MenuItem
-            name="Teste"
+            name="Cartões"
             to={focusedRoute}
-            iconName="chevron-right"
-            path="Teste"
+            iconName="credit-card"
+            path="Tags"
             navigation={navigation}
           />
           <MenuItem
-            name="Invites"
+            name="Convites"
             to={focusedRoute}
             iconName="send"
-            path="Invites"
+            path="InvitesStack"
+            navigation={navigation}
+            screen="Invites"
+          />
+          <MenuItem
+            name="Perfil"
+            to={focusedRoute}
+            iconName="user"
+            path="Profile"
             navigation={navigation}
           />
           <Logout onPress={signOut}>

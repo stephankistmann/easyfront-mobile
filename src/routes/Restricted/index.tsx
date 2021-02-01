@@ -2,8 +2,9 @@ import React from "react";
 import { createDrawerNavigator } from "@react-navigation/drawer";
 import SideMenu from "../../components/SideMenu";
 import Home from "../../pages/Home";
-import Teste from "../../pages/Teste";
-import Invites from "../../pages/Invites";
+import InvitesStack from "./invites.routes";
+import Tags from "../../pages/Tags";
+import Profile from "../../pages/Profile";
 
 const Restricted = createDrawerNavigator();
 
@@ -16,8 +17,9 @@ const RestrictedRoutes: React.FC = () => (
     drawerContent={(props) => <SideMenu {...props} />}
   >
     <Restricted.Screen name="Home" component={Home} />
-    <Restricted.Screen name="Teste" component={Teste} />
-    <Restricted.Screen name="Invites" component={Invites} />
+    <Restricted.Screen name="Profile" component={Profile} />
+    <Restricted.Screen name="InvitesStack" component={InvitesStack} />
+    <Restricted.Screen name="Tags" component={Tags} />
   </Restricted.Navigator>
 );
 

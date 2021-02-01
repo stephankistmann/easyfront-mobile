@@ -8,23 +8,23 @@ import React, {
 import AsyncStorage from "@react-native-community/async-storage";
 import api from "../services/api";
 
-interface User {
+interface IUser {
   id: string;
   name: string;
   email: string;
   avatar_url?: string;
-  password?: string;
+  password: string;
   rg?: string;
-  cpf?: string;
-  gender?: string;
-  nature?: string;
-  phone?: string;
+  cpf: string;
+  gender: string;
+  nature: string;
+  phone: string;
   active: boolean;
 }
 
 interface AuthState {
   token: string;
-  user: User;
+  user: IUser;
 }
 
 interface SignInCredentials {
@@ -33,12 +33,12 @@ interface SignInCredentials {
 }
 
 interface AuthContextData {
-  user: User;
+  user: IUser;
   token: string;
   loading: boolean;
   signIn(credentials: SignInCredentials): Promise<void>;
   signOut(): void;
-  updateUser(user: User): Promise<void>;
+  updateUser(user: IUser): Promise<void>;
 }
 
 const AuthContext = createContext<AuthContextData>({} as AuthContextData);
@@ -91,7 +91,7 @@ const AuthProvider: React.FC = ({ children }) => {
   }, []);
 
   const updateUser = useCallback(
-    async (user: User) => {
+    async (user: IUser) => {
       await AsyncStorage.setItem("Easyfront:user", JSON.stringify(user));
 
       setData({
@@ -127,4 +127,4 @@ function useAuth(): AuthContextData {
   return context;
 }
 
-export { AuthProvider, useAuth };
+export { AuthProvider, useAuth, IUser };

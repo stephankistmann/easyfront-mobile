@@ -1,9 +1,5 @@
 import styled, { css } from "styled-components/native";
 
-interface DotProps {
-  hasUses: boolean;
-}
-
 export const Container = styled.View`
   width: 100%;
   flex-direction: column;
@@ -26,7 +22,7 @@ export const CreditCardBackground = styled.View`
   position: relative;
 `;
 
-export const Dot = styled.View<DotProps>`
+export const Dot = styled.View`
   position: absolute;
   width: 8px;
   height: 8px;
@@ -34,12 +30,6 @@ export const Dot = styled.View<DotProps>`
   border-radius: 4px;
   top: 4px;
   right: 4px;
-
-  ${(props) =>
-    props.hasUses &&
-    css`
-      background: #82d888;
-    `}
 `;
 
 export const TextContainer = styled.View`

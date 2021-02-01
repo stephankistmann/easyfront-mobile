@@ -12,7 +12,6 @@ export const Main = styled.View`
 export const MainHeader = styled.View`
   flex-direction: row;
   align-items: center;
-  justify-content: space-between;
 `;
 
 export const Line = styled.View`
@@ -23,7 +22,7 @@ export const Line = styled.View`
   margin-bottom: 5%;
 `;
 
-export const InviteList = styled.View`
+export const TagList = styled.View`
   flex-direction: row;
 `;
 
@@ -35,16 +34,4 @@ export const AddTag = styled.TouchableOpacity`
   margin: 24px;
   border-radius: 8px;
   height: 48px;
-`;
-
-export const History = styled.TouchableOpacity`
-  align-self: flex-end;
-  height: 30px;
-  width: 90px;
-  justify-content: space-around;
-  border-radius: 8px;
-  border: 1px solid #0e0e2c;
-  align-items: center;
-  flex-direction: row;
-  padding: 8px;
 `;

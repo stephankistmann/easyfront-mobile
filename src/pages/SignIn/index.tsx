@@ -10,7 +10,7 @@ import * as Yup from "yup";
 import getValidationErrors from "../../utils/getValidationErrors";
 import { Form } from "@unform/mobile";
 import { FormHandles } from "@unform/core";
-import Input from "../../components/Input";
+import InputUnform from "../../components/InputUnform";
 import Button from "../../components/Button";
 
 import { useAuth } from "../../hooks/auth";
@@ -36,6 +36,7 @@ const SignIn: React.FC = () => {
 
   const handleSignIn = useCallback(
     async (data: SignInFormData) => {
+      console.log(data);
       try {
         formRef.current?.setErrors({});
 
@@ -80,7 +81,7 @@ const SignIn: React.FC = () => {
           <Title>Faça seu login</Title>
 
           <Form ref={formRef} onSubmit={handleSignIn}>
-            <Input
+            <InputUnform
               name="email"
               placeholder="E-mail"
               icon="mail"
@@ -88,10 +89,10 @@ const SignIn: React.FC = () => {
               autoCapitalize="none"
               keyboardType="email-address"
               returnKeyType="next"
-              // onSubmitEditing={() => passwordRefInput.current?.focus()}
+              // onSubmitEditing={() => passwordRefInputUnform.current?.focus()}
             />
-            <Input
-              // ref={passwordRefInput}
+            <InputUnform
+              // ref={passwordRefInputUnform}
               name="password"
               placeholder="Senha"
               icon="lock"
@@ -103,6 +104,7 @@ const SignIn: React.FC = () => {
             />
 
             <Button
+              style={{ width: 340 }}
               onPress={() => {
                 formRef.current?.submitForm();
               }}

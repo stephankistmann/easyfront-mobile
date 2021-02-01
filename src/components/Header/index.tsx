@@ -8,6 +8,7 @@ import {
   UnitsContainer,
   Profile,
   Avatar,
+  AvatarImage,
   AvatarPlaceholder,
   GreenDot,
 } from "./styles";
@@ -45,7 +46,7 @@ const Header: React.FC<IHeader> = ({ hasBackButton }) => {
           <GreenDot />
           <Avatar onPress={() => console.log("enviar para o profile")}>
             {user.avatar_url ? (
-              <Image source={{ uri: user.avatar_url }} />
+              <AvatarImage source={{ uri: user.avatar_url }} />
             ) : (
               <AvatarPlaceholder>
                 <Text

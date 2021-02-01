@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { Text } from "react-native";
 import Feather from "react-native-vector-icons/Feather";
 import { useAccess } from "../../../hooks/access";
-import { useSuperunit } from "../../../hooks/superunit";
 import api from "../../../services/api";
 import {
   Container,
@@ -54,7 +53,7 @@ const InviteItem: React.FC = () => {
         if (!response) return;
 
         const filteredInvites = response.data.data.filter(
-          (invite: IInvites) => invite.finished === false
+          (invite: IInvites) => invite.finished === true
         );
 
         setInvites(filteredInvites);
@@ -71,7 +70,7 @@ const InviteItem: React.FC = () => {
         <InviteContianer key={invite.id}>
           <LeftContent>
             <CreditCardBackground>
-              <Dot hasUses={!!invite.uses} />
+              <Dot />
               <Feather
                 name="send"
                 size={20}
@@ -90,7 +89,7 @@ const InviteItem: React.FC = () => {
           </LeftContent>
           <RightContent>
             <UsesContainer>
-              <Text style={{ fontSize: 12 }}>
+              <Text style={{ fontSize: 12, color: "#aaa" }}>
                 {invite.uses} / {invite.uses_limit}
               </Text>
             </UsesContainer>

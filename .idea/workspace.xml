@@ -2,10 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="309d9996-e221-49bd-91ef-5e7610804eef" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Header/styles.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header/styles.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/SideMenu/MenuItem/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/SideMenu/MenuItem/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/SideMenu/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/SideMenu/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Invites/InviteItem/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Invites/InviteItem/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Invites/InviteItem/styles.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Invites/InviteItem/styles.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Invites/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Invites/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Invites/styles.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Invites/styles.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/Drawer/index.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/Restricted/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/Restricted/index.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,13 +45,17 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
-    <state x="360" y="120" width="1200" height="800" key="AVDManager" timestamp="1611583070485">
+    <state x="360" y="120" width="1200" height="800" key="AVDManager" timestamp="1611874084269">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="360" y="120" width="1200" height="800" key="AVDManager/0.0.1920.1040@0.0.1920.1040" timestamp="1611583070485" />
+    <state x="360" y="120" width="1200" height="800" key="AVDManager/0.0.1920.1040@0.0.1920.1040" timestamp="1611874084269" />
     <state x="461" y="165" key="SettingsEditor" timestamp="1610631365080">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="461" y="165" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1610631365080" />
+    <state x="616" y="242" key="run.anything.popup" timestamp="1611783913940">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="616" y="242" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1611783913940" />
   </component>
 </project>

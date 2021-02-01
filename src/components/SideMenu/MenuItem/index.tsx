@@ -1,4 +1,3 @@
-import { DrawerItem } from "@react-navigation/drawer";
 import React from "react";
 import { Container, ScreenName, FeatherIcon } from "./styles";
 
@@ -8,6 +7,7 @@ interface MenuItemProps {
   path: string;
   to: string;
   navigation: any;
+  screen?: string;
 }
 
 const MenuItem: React.FC<MenuItemProps> = ({
@@ -16,17 +16,34 @@ const MenuItem: React.FC<MenuItemProps> = ({
   name,
   iconName,
   navigation,
+  screen,
 }) => {
   return (
-    <Container
-      isSelected={path === to}
-      onPress={() => navigation.navigate(`${path}`)}
-    >
-      {iconName && (
-        <FeatherIcon isSelected={path === to} name={iconName} size={20} />
+    <>
+      {screen ? (
+        <Container
+          isSelected={path === to}
+          onPress={() =>
+            navigation.navigate(`${path}`, { screen: `${screen}` })
+          }
+        >
+          {iconName && (
+            <FeatherIcon isSelected={path === to} name={iconName} size={20} />
+          )}
+          <ScreenName isSelected={path === to}>{name}</ScreenName>
+        </Container>
+      ) : (
+        <Container
+          isSelected={path === to}
+          onPress={() => navigation.navigate(`${path}`)}
+        >
+          {iconName && (
+            <FeatherIcon isSelected={path === to} name={iconName} size={20} />
+          )}
+          <ScreenName isSelected={path === to}>{name}</ScreenName>
+        </Container>
       )}
-      <ScreenName isSelected={path === to}>{name}</ScreenName>
-    </Container>
+    </>
   );
 };
 
