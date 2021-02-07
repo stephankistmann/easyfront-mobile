@@ -27,6 +27,7 @@ import {
 import Header from "../../components/Header";
 import Feather from "react-native-vector-icons/Feather";
 import api from "../../services/api";
+import Select from "../../components/Select/index.ios";
 
 interface ProfileFormData {
   name: string;
@@ -67,6 +68,28 @@ const Profile: React.FC = () => {
     setUserData((oldUser) => ({ ...oldUser, [field]: value }));
   }, []);
 
+  const genders = [
+    {
+      label: "Masculino",
+      id: "male",
+    },
+    {
+      label: "Feminino",
+      id: "female",
+    },
+  ];
+
+  const natures = [
+    {
+      label: "Físico",
+      id: "physic",
+    },
+    {
+      label: "Jurídico",
+      id: "juridic",
+    },
+  ];
+
   const handleSubmit = useCallback(
     async (data: ProfileFormData) => {
       try {
@@ -92,8 +115,6 @@ const Profile: React.FC = () => {
         const response = await api.put("/users", formData);
 
         updateUser(response.data);
-
-        console.log(response.data);
 
         Alert.alert("Perfil atualizado com sucesso!");
 
@@ -139,20 +160,20 @@ const Profile: React.FC = () => {
             </Title>
             <Line />
             <UserAvatarButton onPress={() => {}}>
-              {/* {user.avatar_url ? (
+              {user.avatar_url ? (
                 <UserAvatar source={{ uri: user.avatar_url }} />
-              ) : ( */}
-              <AvatarPlaceholder>
-                <Text
-                  style={{
-                    fontSize: 32,
-                    color: "#fff",
-                  }}
-                >
-                  {initials}
-                </Text>
-              </AvatarPlaceholder>
-              {/* )} */}
+              ) : (
+                <AvatarPlaceholder>
+                  <Text
+                    style={{
+                      fontSize: 32,
+                      color: "#fff",
+                    }}
+                  >
+                    {initials}
+                  </Text>
+                </AvatarPlaceholder>
+              )}
             </UserAvatarButton>
             <Text
               style={{ marginTop: 16, marginBottom: 24, fontWeight: "bold" }}
@@ -220,27 +241,36 @@ const Profile: React.FC = () => {
             />
 
             <SelectContainer>
-              <SelectGenderNature
-                selectedValue={userData.gender}
-                onValueChange={(gender: string) =>
+              <Text>
+                {userData.gender &&
+                  userData.gender
+                    .replace("female", "Feminino")
+                    .replace("male", "Masculino")
+                    .replace("not-informed", "Não-informado")}
+              </Text>
+              <Select
+                value={userData.gender}
+                onChange={(gender: string) =>
                   handleChangeUserField("gender", gender)
                 }
-              >
-                <SelectGenderNature.Item label="Masculino" value="male" />
-                <SelectGenderNature.Item label="Feminino" value="female" />
-              </SelectGenderNature>
+                options={genders}
+              />
             </SelectContainer>
-
             <SelectContainer>
-              <SelectGenderNature
-                selectedValue={userData.nature}
-                onValueChange={(nature: string) =>
+              <Text>
+                {userData.nature &&
+                  userData.nature
+                    .replace("juridic", "Jurídico")
+                    .replace("physic", "Físico")
+                    .replace("not-informed", "Não-informado")}
+              </Text>
+              <Select
+                value={userData.nature}
+                onChange={(nature: string) =>
                   handleChangeUserField("nature", nature)
                 }
-              >
-                <SelectGenderNature.Item label="Físico" value="physic" />
-                <SelectGenderNature.Item label="Jurídico" value="juridic" />
-              </SelectGenderNature>
+                options={natures}
+              />
             </SelectContainer>
 
             <Button onPress={() => handleSubmit(userData)}>Salvar</Button>

@@ -51,7 +51,7 @@ export const Line = styled.View`
 export const Logout = styled.TouchableOpacity`
   width: 100%;
   flex-direction: row;
-  height: 44px;
+  height: 54px;
   align-items: center;
   padding: 16px;
 `;

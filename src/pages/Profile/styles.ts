@@ -19,7 +19,6 @@ export const Title = styled.View`
 export const Line = styled.View`
   width: 100%;
   height: 1px;
-  background: red;
   margin-top: 5%;
   margin-bottom: 5%;
   background: #bbb;
@@ -54,8 +53,10 @@ export const SelectContainer = styled.View`
   border-radius: 8px;
   padding: 16px;
   margin-bottom: 8px;
-  height: 48px;
+  height: 54px;
   max-width: 340px;
-  justify-content: center;
   width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
 `;

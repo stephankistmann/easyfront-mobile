@@ -1,5 +1,5 @@
 import React from "react";
-import { Text, View } from "react-native";
+import { ActivityIndicator, Text, View } from "react-native";
 import { useAccess } from "../../../hooks/access";
 import { Container, Selected } from "./styles";
 
@@ -10,7 +10,7 @@ const AccessSelect: React.FC = () => {
     <Container>
       <Selected>
         {loading ? (
-          <Text>loading...</Text>
+          <ActivityIndicator />
         ) : (
           <>
             <View>

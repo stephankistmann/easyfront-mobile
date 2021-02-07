@@ -2,6 +2,7 @@ import React from "react";
 import { View, Text } from "react-native";
 import Header from "../../components/Header";
 import Feather from "react-native-vector-icons/Feather";
+import { ScrollView } from "react-native-gesture-handler";
 import InviteItem from "./InviteItem";
 import {
   Container,
@@ -36,9 +37,11 @@ const InvitesHistory: React.FC = () => {
           </View>
         </MainHeader>
         <Line />
-        <InviteList>
-          <InviteItem />
-        </InviteList>
+        <ScrollView>
+          <InviteList>
+            <InviteItem />
+          </InviteList>
+        </ScrollView>
       </Main>
       <AddTag>
         <Text style={{ color: "#fff", fontWeight: "bold", marginLeft: 16 }}>

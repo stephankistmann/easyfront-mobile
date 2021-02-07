@@ -14,7 +14,7 @@ export const Container = styled.View`
   padding: 16px;
   margin-bottom: 8px;
   width: 100%;
-  height: 48px;
+  height: 54px;
   max-width: 340px;
   flex-direction: row;
   align-items: center;

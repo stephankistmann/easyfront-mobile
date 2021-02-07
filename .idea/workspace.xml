@@ -3,14 +3,20 @@
   <component name="ChangeListManager">
     <list default="true" id="309d9996-e221-49bd-91ef-5e7610804eef" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Header/styles.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header/styles.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/SideMenu/MenuItem/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/SideMenu/MenuItem/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Header/AccessSelect/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header/AccessSelect/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Input/styles.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Input/styles.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/SideMenu/MenuItem/styles.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/SideMenu/MenuItem/styles.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/SideMenu/SuperUnitSelect/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/SideMenu/SuperUnitSelect/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/SideMenu/SuperUnitSelect/styles.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/SideMenu/SuperUnitSelect/styles.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/SideMenu/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/SideMenu/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Invites/InviteItem/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Invites/InviteItem/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Invites/InviteItem/styles.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Invites/InviteItem/styles.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/SideMenu/styles.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/SideMenu/styles.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/Invites/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Invites/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/Invites/styles.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Invites/styles.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/Drawer/index.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/InvitesHistory/InviteItem/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/InvitesHistory/InviteItem/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/InvitesHistory/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/InvitesHistory/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/InvitesHistory/styles.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/InvitesHistory/styles.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Profile/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Profile/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Profile/styles.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Profile/styles.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/routes/Restricted/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/Restricted/index.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -30,6 +36,15 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="AndroidSdkUpdater" />
+  </component>
+  <component name="RunAnythingCache">
+    <option name="myCommands">
+      <command value="{path}\android-sdk\emulator\emulator.exe" />
+      <command value="C:\Android\Sdk\tools\emulator.exe" />
+      <command value="c:\Android\Sdk\tools" />
+      <command value="c:\Android\Sdk\tools ./emulator -list-avds" />
+    </option>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -45,17 +60,37 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
-    <state x="360" y="120" width="1200" height="800" key="AVDManager" timestamp="1611874084269">
+    <state x="360" y="120" width="1200" height="800" key="AVDManager" timestamp="1612359773371">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="360" y="120" width="1200" height="800" key="AVDManager/0.0.1920.1040@0.0.1920.1040" timestamp="1611874084269" />
-    <state x="461" y="165" key="SettingsEditor" timestamp="1610631365080">
+    <state x="360" y="120" width="1200" height="800" key="AVDManager/0.0.1920.1040@0.0.1920.1040" timestamp="1612359773371" />
+    <state width="1362" height="266" key="GridCell.Tab.0.bottom" timestamp="1612274464634">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="461" y="165" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1610631365080" />
-    <state x="616" y="242" key="run.anything.popup" timestamp="1611783913940">
+    <state width="1362" height="266" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1612274464634" />
+    <state width="1362" height="266" key="GridCell.Tab.0.center" timestamp="1612274464634">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="616" y="242" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1611783913940" />
+    <state width="1362" height="266" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1612274464634" />
+    <state width="1362" height="266" key="GridCell.Tab.0.left" timestamp="1612274464634">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1362" height="266" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1612274464634" />
+    <state width="1362" height="266" key="GridCell.Tab.0.right" timestamp="1612274464634">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1362" height="266" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1612274464634" />
+    <state x="461" y="165" key="SettingsEditor" timestamp="1612273694759">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="461" y="165" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1612273694759" />
+    <state x="616" y="242" width="672" height="677" key="run.anything.popup" timestamp="1612272478606">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="616" y="242" width="672" height="677" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1612272478606" />
+    <state x="623" y="239" width="672" height="678" key="search.everywhere.popup" timestamp="1612272529058">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="623" y="239" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1612272529058" />
   </component>
 </project>

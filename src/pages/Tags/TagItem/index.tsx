@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Text } from "react-native";
+import { ActivityIndicator, Text } from "react-native";
 import Feather from "react-native-vector-icons/Feather";
 import api from "../../../services/api";
 import {
@@ -44,17 +44,23 @@ const TagItem: React.FC = () => {
 
   return (
     <Container>
-      {tags.map((tag) => (
-        <InviteContianer key={tag.id}>
-          <CreditCardBackground>
-            <Feather name="credit-card" size={24} color="#fff" />
-          </CreditCardBackground>
-          <Text style={{ fontSize: 12 }}>{tag.serial}</Text>
-          <TrashBackground onPress={() => handleDelete(tag.id)}>
-            <Feather name="trash-2" size={18} color="#0e0e2c" />
-          </TrashBackground>
-        </InviteContianer>
-      ))}
+      {!loading ? (
+        <ActivityIndicator />
+      ) : (
+        <>
+          {tags.map((tag) => (
+            <InviteContianer key={tag.id}>
+              <CreditCardBackground>
+                <Feather name="credit-card" size={24} color="#fff" />
+              </CreditCardBackground>
+              <Text style={{ fontSize: 12 }}>{tag.serial}</Text>
+              <TrashBackground onPress={() => handleDelete(tag.id)}>
+                <Feather name="trash-2" size={18} color="#0e0e2c" />
+              </TrashBackground>
+            </InviteContianer>
+          ))}
+        </>
+      )}
     </Container>
   );
 };

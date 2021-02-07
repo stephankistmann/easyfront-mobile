@@ -69,19 +69,33 @@ const SideMenu: React.FC<ISideMenuProps> = ({ navigation, ...props }) => {
             navigation={navigation}
           />
           <MenuItem
-            name="Cartões"
-            to={focusedRoute}
-            iconName="credit-card"
-            path="Tags"
-            navigation={navigation}
-          />
-          <MenuItem
             name="Convites"
             to={focusedRoute}
             iconName="send"
             path="InvitesStack"
             navigation={navigation}
             screen="Invites"
+          />
+          <MenuItem
+            name="Eventos"
+            to={focusedRoute}
+            iconName="bell"
+            path="Events"
+            navigation={navigation}
+          />
+          <MenuItem
+            name="Dispositivos"
+            to={focusedRoute}
+            iconName="tablet"
+            path="Devices"
+            navigation={navigation}
+          />
+          <MenuItem
+            name="Cartões"
+            to={focusedRoute}
+            iconName="credit-card"
+            path="Tags"
+            navigation={navigation}
           />
           <MenuItem
             name="Perfil"

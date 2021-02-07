@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Text } from "react-native";
+import { Text, ActivityIndicator } from "react-native";
 import Feather from "react-native-vector-icons/Feather";
 import { useAccess } from "../../../hooks/access";
 import api from "../../../services/api";
@@ -66,39 +66,45 @@ const InviteItem: React.FC = () => {
 
   return (
     <Container>
-      {invites.map((invite) => (
-        <InviteContianer key={invite.id}>
-          <LeftContent>
-            <CreditCardBackground>
-              <Dot />
-              <Feather
-                name="send"
-                size={20}
-                color="#fff"
-                style={{ position: "absolute", bottom: 10, left: 10 }}
-              />
-            </CreditCardBackground>
-            <TextContainer>
-              <Text style={{ fontSize: 14, fontWeight: "bold" }}>
-                {invite.guest}
-              </Text>
-              <Text style={{ fontSize: 12, color: "#aaa" }}>
-                {invite.inviteType.name}
-              </Text>
-            </TextContainer>
-          </LeftContent>
-          <RightContent>
-            <UsesContainer>
-              <Text style={{ fontSize: 12, color: "#aaa" }}>
-                {invite.uses} / {invite.uses_limit}
-              </Text>
-            </UsesContainer>
-            <TrashBackground onPress={() => handleDelete(invite.id)}>
-              <Feather name="trash-2" size={18} color="#0e0e2c" />
-            </TrashBackground>
-          </RightContent>
-        </InviteContianer>
-      ))}
+      {loading ? (
+        <ActivityIndicator />
+      ) : (
+        <>
+          {invites.map((invite: IInvites) => (
+            <InviteContianer key={invite.id}>
+              <LeftContent>
+                <CreditCardBackground>
+                  <Dot />
+                  <Feather
+                    name="send"
+                    size={20}
+                    color="#fff"
+                    style={{ position: "absolute", bottom: 10, left: 10 }}
+                  />
+                </CreditCardBackground>
+                <TextContainer>
+                  <Text style={{ fontSize: 14, fontWeight: "bold" }}>
+                    {invite.guest}
+                  </Text>
+                  <Text style={{ fontSize: 12, color: "#aaa" }}>
+                    {invite.inviteType.name}
+                  </Text>
+                </TextContainer>
+              </LeftContent>
+              <RightContent>
+                <UsesContainer>
+                  <Text style={{ fontSize: 12, color: "#aaa" }}>
+                    {invite.uses} / {invite.uses_limit}
+                  </Text>
+                </UsesContainer>
+                <TrashBackground onPress={() => handleDelete(invite.id)}>
+                  <Feather name="trash-2" size={18} color="#0e0e2c" />
+                </TrashBackground>
+              </RightContent>
+            </InviteContianer>
+          ))}
+        </>
+      )}
     </Container>
   );
 };

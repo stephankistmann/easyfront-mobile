@@ -23,7 +23,7 @@ export const Line = styled.View`
   margin-bottom: 5%;
 `;
 
-export const InviteList = styled.View`
+export const EventList = styled.View`
   flex-direction: row;
 `;
 
@@ -33,9 +33,9 @@ export const AddTag = styled.TouchableOpacity`
   flex-direction: row;
   background: #f66253;
   margin: 24px;
+  margin-top: 0;
   border-radius: 8px;
   height: 48px;
-  margin-top: 0;
 `;
 
 export const History = styled.TouchableOpacity`
