@@ -1,6 +1,6 @@
 /* eslint-disable no-constant-condition */
-import React, { useEffect, useState } from "react";
-import { View, Text, ActivityIndicator, Platform } from "react-native";
+import React from "react";
+import { Text, ActivityIndicator, Platform } from "react-native";
 import { Feather } from "@expo/vector-icons";
 import SelectIOS from "../../Select/index.ios";
 import Select from "../../Select/index.android";
@@ -9,20 +9,11 @@ import {
   Container,
   Selected,
   IconBackground,
-  AccessSelect,
   Left,
   Right,
-  Loading,
-  LoadingContainer,
-  LoadingText,
   SuperUnitUnitTextContainer,
-  SelectedInfo,
   SuperUnitText,
   ChevronDown,
-  // Content,
-  // SelectedInfo,
-  // Item,
-  // StyledLoading,
 } from "./styles";
 import { useAccess } from "../../../hooks/access";
 
@@ -65,24 +56,6 @@ const SuperUnitSelect: React.FC = () => {
                 />
               </>
             )}
-
-            {/* <AccessSelect
-              selectedValue={selected?.id}
-              onValueChange={(superunitId: string) =>
-                selectSuperunit(superunitId)
-              }
-            >
-              {superunities.map((superunit) => (
-                <SuperunitSelect.Item
-                  label={superunit.name}
-                  value={superunit.id}
-                  key={superunit.id}
-                />
-              ))}
-            </AccessSelect> */}
-            {/* <TouchableOpacity>
-              <Feather name="chevron-down" color="#0e0e2c" size={24} />
-            </TouchableOpacity> */}
           </>
         )}
       </Selected>

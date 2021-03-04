@@ -4,20 +4,10 @@ import Header from "../../components/Header";
 import Feather from "react-native-vector-icons/Feather";
 import { ScrollView } from "react-native-gesture-handler";
 import EventItem from "./EventItem";
-import {
-  Container,
-  Main,
-  MainHeader,
-  Line,
-  EventList,
-  History,
-} from "./styles";
+import { Container, Main, MainHeader, Line, EventList } from "./styles";
 import { TouchableOpacity } from "react-native-gesture-handler";
-import { useNavigation } from "@react-navigation/native";
 
 const Events: React.FC = () => {
-  const navigation = useNavigation();
-
   return (
     <Container>
       <Header />

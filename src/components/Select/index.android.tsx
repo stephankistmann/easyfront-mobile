@@ -1,6 +1,5 @@
 import React, { useCallback } from "react";
 import { Picker } from "@react-native-community/picker";
-import { Content } from "./styles";
 
 interface ISuperUnit {
   id: string;

@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="309d9996-e221-49bd-91ef-5e7610804eef" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+<<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Header/AccessSelect/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header/AccessSelect/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Header/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header/index.tsx" afterDir="false" />
@@ -10,16 +11,23 @@
       <change beforePath="$PROJECT_DIR$/src/components/Input/styles.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Input/styles.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/InputUnform/index.tsx" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/InputUnform/styles.ts" beforeDir="false" />
+=======
+      <change beforePath="$PROJECT_DIR$/src/components/Header/AccessSelect/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header/AccessSelect/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Input/styles.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Input/styles.ts" afterDir="false" />
+>>>>>>> e9c735a207644bb301ebf28b2c05e20b6d858b12
       <change beforePath="$PROJECT_DIR$/src/components/SideMenu/MenuItem/styles.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/SideMenu/MenuItem/styles.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/SideMenu/SuperUnitSelect/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/SideMenu/SuperUnitSelect/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/SideMenu/SuperUnitSelect/styles.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/SideMenu/SuperUnitSelect/styles.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/SideMenu/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/SideMenu/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/SideMenu/styles.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/SideMenu/styles.ts" afterDir="false" />
+<<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/src/hooks/access.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/hooks/access.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/hooks/auth.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/hooks/auth.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/Home/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Home/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/Home/styles.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Home/styles.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/Invites/InviteItem/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Invites/InviteItem/index.tsx" afterDir="false" />
+=======
+>>>>>>> e9c735a207644bb301ebf28b2c05e20b6d858b12
       <change beforePath="$PROJECT_DIR$/src/pages/Invites/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Invites/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/Invites/styles.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Invites/styles.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/InvitesHistory/InviteItem/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/InvitesHistory/InviteItem/index.tsx" afterDir="false" />
@@ -27,9 +35,12 @@
       <change beforePath="$PROJECT_DIR$/src/pages/InvitesHistory/styles.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/InvitesHistory/styles.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/Profile/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Profile/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/Profile/styles.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Profile/styles.ts" afterDir="false" />
+<<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/src/pages/SignIn/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/SignIn/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/Tags/TagItem/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Tags/TagItem/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/Tags/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Tags/index.tsx" afterDir="false" />
+=======
+>>>>>>> e9c735a207644bb301ebf28b2c05e20b6d858b12
       <change beforePath="$PROJECT_DIR$/src/routes/Restricted/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/Restricted/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/routes/Restricted/invites.routes.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/Restricted/invites.routes.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/services/api.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/api.ts" afterDir="false" />
@@ -76,11 +87,18 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
+<<<<<<< HEAD
     <state x="360" y="120" width="1200" height="800" key="AVDManager" timestamp="1614894791191">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="360" y="120" width="1200" height="800" key="AVDManager/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1614894791191" />
     <state x="360" y="120" width="1200" height="800" key="AVDManager/0.0.1920.1040@0.0.1920.1040" timestamp="1614405536969" />
+=======
+    <state x="360" y="120" width="1200" height="800" key="AVDManager" timestamp="1612359773371">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="360" y="120" width="1200" height="800" key="AVDManager/0.0.1920.1040@0.0.1920.1040" timestamp="1612359773371" />
+>>>>>>> e9c735a207644bb301ebf28b2c05e20b6d858b12
     <state width="1362" height="266" key="GridCell.Tab.0.bottom" timestamp="1612274464634">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -97,10 +115,16 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1362" height="266" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1612274464634" />
+<<<<<<< HEAD
     <state x="461" y="165" key="SettingsEditor" timestamp="1614614925474">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="461" y="165" key="SettingsEditor/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1614614925474" />
+=======
+    <state x="461" y="165" key="SettingsEditor" timestamp="1612273694759">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+>>>>>>> e9c735a207644bb301ebf28b2c05e20b6d858b12
     <state x="461" y="165" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1612273694759" />
     <state x="616" y="242" width="672" height="677" key="run.anything.popup" timestamp="1612272478606">
       <screen x="0" y="0" width="1920" height="1040" />

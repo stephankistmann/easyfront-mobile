@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, SafeAreaView } from "react-native";
+import { View, Text } from "react-native";
 import Header from "../../components/Header";
 import Feather from "react-native-vector-icons/Feather";
 import { ScrollView } from "react-native-gesture-handler";
