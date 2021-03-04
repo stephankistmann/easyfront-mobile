@@ -1,14 +1,7 @@
-<<<<<<< HEAD
 import React, { useCallback, useEffect, useState } from "react";
 import { ActivityIndicator, Alert, Text } from "react-native";
 import Feather from "react-native-vector-icons/Feather";
 import { useAccess } from "../../../hooks/access";
-=======
-import React, { useEffect, useState } from "react";
-import { ActivityIndicator, Text } from "react-native";
-import Feather from "react-native-vector-icons/Feather";
-import { useSuperunit } from "../../../hooks/superunit";
->>>>>>> e9c735a207644bb301ebf28b2c05e20b6d858b12
 import api from "../../../services/api";
 import {
   Container,
@@ -28,11 +21,7 @@ interface IDevice {
 }
 
 const DeviceItem: React.FC = () => {
-<<<<<<< HEAD
   const { selected } = useAccess();
-=======
-  const { selected } = useSuperunit();
->>>>>>> e9c735a207644bb301ebf28b2c05e20b6d858b12
   const [devices, setDevices] = useState<IDevice[]>([]);
   const [loading, setLoading] = useState(true);
 
