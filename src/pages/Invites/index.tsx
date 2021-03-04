@@ -1,7 +1,8 @@
 import React from "react";
-import { View, Text } from "react-native";
+import { View, Text, SafeAreaView } from "react-native";
 import Header from "../../components/Header";
 import Feather from "react-native-vector-icons/Feather";
+import { ScrollView } from "react-native-gesture-handler";
 import InviteItem from "./InviteItem";
 import {
   Container,
@@ -28,7 +29,7 @@ const Invites: React.FC = () => {
               name="send"
               color="#F66253"
               size={24}
-              style={{ marginRight: 8, marginLeft: 8 }}
+              style={{ marginRight: 8 }}
             />
             <Text style={{ fontWeight: "bold", marginRight: 8 }}>
               Meus Convites
@@ -44,11 +45,13 @@ const Invites: React.FC = () => {
           </History>
         </MainHeader>
         <Line />
-        <InviteList>
-          <InviteItem />
-        </InviteList>
+        <ScrollView showsVerticalScrollIndicator={false}>
+          <InviteList>
+            <InviteItem />
+          </InviteList>
+        </ScrollView>
       </Main>
-      <AddTag>
+      <AddTag onPress={() => navigation.navigate("InvitesAdd")}>
         <Text style={{ color: "#fff", fontWeight: "bold", marginLeft: 16 }}>
           Criar um novo convite
         </Text>

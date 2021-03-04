@@ -1,5 +1,8 @@
 import styled from "styled-components/native";
 import { RectButton } from "react-native-gesture-handler";
+import { Dimensions } from "react-native";
+
+const { width } = Dimensions.get("window");
 
 export const Container = styled.View`
   flex: 1;
@@ -23,35 +26,58 @@ export const MessageContainer = styled.View`
   padding: 8px;
 `;
 
+export const MessageContainerTextBold = styled.Text`
+  font-weight: bold;
+`;
+
+export const MessageContainerText = styled.Text`
+  color: #383850;
+  opacity: 46;
+`;
+
 export const User = styled.Text`
   color: #383850;
   opacity: 46;
 `;
 
-export const ShortcutsContainer = styled.View`
+export const ShortCutsText = styled.Text`
+  font-weight: bold;
+  margin-bottom: 16px;
+`;
+
+export const ShortCutsContainer = styled.View`
   height: 23%;
-  padding: 16px;
-  justify-content: space-between;
+  position: relative;
 `;
 
-export const InvitesContainer = styled.View`
-  flex-direction: row;
+export const ShortCutsContainerText = styled.Text`
+  font-size: 12px;
+  color: #383850;
+  font-weight: bold;
 `;
 
-export const Invites = styled(RectButton)`
-  height: 80px;
-  margin-right: 8px;
-  width: 40%;
+export const ShortCut = styled(RectButton)`
+  margin-left: 8px;
+  min-width: 40%;
   background: #dedede;
-  border-radius: 8px;
+  border-radius: 16px;
+  align-items: center;
+  padding: 24px;
 `;
 
-export const InviteIconBg = styled.View`
-  background: #383850;
-  height: 32px;
-  width: 32px;
-  margin: 8px;
+export const ShortCutIconBg = styled.View`
+  background: #fa7163;
+  height: 64px;
+  width: 64px;
+  margin-bottom: 12px;
   border-radius: 8px;
   align-items: center;
   justify-content: center;
+`;
+
+export const ScrollViewContainer = styled.View`
+  position: absolute;
+  width: ${width}px;
+  top: 0;
+  left: -14px;
 `;

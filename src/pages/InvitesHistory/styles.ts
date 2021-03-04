@@ -35,6 +35,7 @@ export const AddTag = styled.TouchableOpacity`
   margin: 24px;
   border-radius: 8px;
   height: 48px;
+  margin-top: 0;
 `;
 
 export const History = styled.TouchableOpacity`

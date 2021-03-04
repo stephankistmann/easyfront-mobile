@@ -13,6 +13,7 @@ import {
   Header,
   Profile,
   Avatar,
+  AvatarBorder,
   AvatarPlaceholder,
   Menu,
   Line,
@@ -37,10 +38,12 @@ const SideMenu: React.FC<ISideMenuProps> = ({ navigation, ...props }) => {
         <Container>
           <Header>
             <Profile>
-              <Avatar>
-                {user.avatar_url ? (
-                  <Image source={{ uri: user.avatar_url }} />
-                ) : (
+              {user.avatar_url ? (
+                <AvatarBorder>
+                  <Avatar source={{ uri: user.avatar_url }} />
+                </AvatarBorder>
+              ) : (
+                <AvatarBorder>
                   <AvatarPlaceholder>
                     <Text
                       style={{
@@ -52,8 +55,9 @@ const SideMenu: React.FC<ISideMenuProps> = ({ navigation, ...props }) => {
                       {initials}
                     </Text>
                   </AvatarPlaceholder>
-                )}
-              </Avatar>
+                </AvatarBorder>
+              )}
+
               <Text style={{ marginTop: 20 }}>{user.name}</Text>
 
               <SuperUnitSelect />
@@ -69,19 +73,33 @@ const SideMenu: React.FC<ISideMenuProps> = ({ navigation, ...props }) => {
             navigation={navigation}
           />
           <MenuItem
-            name="Cartões"
-            to={focusedRoute}
-            iconName="credit-card"
-            path="Tags"
-            navigation={navigation}
-          />
-          <MenuItem
             name="Convites"
             to={focusedRoute}
             iconName="send"
             path="InvitesStack"
             navigation={navigation}
             screen="Invites"
+          />
+          <MenuItem
+            name="Eventos"
+            to={focusedRoute}
+            iconName="bell"
+            path="Events"
+            navigation={navigation}
+          />
+          <MenuItem
+            name="Dispositivos"
+            to={focusedRoute}
+            iconName="tablet"
+            path="Devices"
+            navigation={navigation}
+          />
+          <MenuItem
+            name="Cartões"
+            to={focusedRoute}
+            iconName="credit-card"
+            path="Tags"
+            navigation={navigation}
           />
           <MenuItem
             name="Perfil"

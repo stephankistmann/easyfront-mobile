@@ -1,7 +1,8 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "http://192.168.15.6:3333/",
+  // baseURL: "https://api.easyfront.cloud/",
+  baseURL: "http://192.168.0.27:3333",
 });
 
 export default api;

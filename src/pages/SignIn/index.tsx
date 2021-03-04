@@ -1,4 +1,4 @@
-import React, { useCallback, useRef } from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 import {
   Image,
   KeyboardAvoidingView,
@@ -8,9 +8,7 @@ import {
 } from "react-native";
 import * as Yup from "yup";
 import getValidationErrors from "../../utils/getValidationErrors";
-import { Form } from "@unform/mobile";
-import { FormHandles } from "@unform/core";
-import InputUnform from "../../components/InputUnform";
+import Input from "../../components/Input";
 import Button from "../../components/Button";
 
 import { useAuth } from "../../hooks/auth";
@@ -18,7 +16,7 @@ import { useAuth } from "../../hooks/auth";
 import logo from "../../assets/logo.png";
 import { Container, Title, ForgotPassword, ForgotPasswordText } from "./styles";
 
-interface SignInFormData {
+interface ISignInFormData {
   email: string;
   password: string;
 }
@@ -31,15 +29,23 @@ const schema = Yup.object().shape({
 });
 
 const SignIn: React.FC = () => {
-  const formRef = useRef<FormHandles>(null);
+  const [formData, setFormData] = useState<ISignInFormData>(
+    {} as ISignInFormData
+  );
+  const [userEmail, setUserEmail] = useState<string>();
+  const [userPassword, setUserPassword] = useState<string>();
+
   const { signIn } = useAuth();
 
-  const handleSignIn = useCallback(
-    async (data: SignInFormData) => {
-      console.log(data);
-      try {
-        formRef.current?.setErrors({});
+  useEffect(() => {
+    if (userEmail || userPassword) {
+      setFormData({ email: userEmail!, password: userPassword! });
+    }
+  }, [userEmail, userPassword]);
 
+  const handleSignIn = useCallback(
+    async (data: ISignInFormData) => {
+      try {
         await schema.validate(data, {
           abortEarly: false,
         });
@@ -52,8 +58,6 @@ const SignIn: React.FC = () => {
         if (err instanceof Yup.ValidationError) {
           const errors = getValidationErrors(err);
 
-          formRef.current?.setErrors(errors);
-
           return;
         }
 
@@ -61,6 +65,8 @@ const SignIn: React.FC = () => {
           "Erro na autenticação",
           "Ocorreu um erro ao fazer login, cheque seu e-mail e/ou senha."
         );
+
+        console.log(err);
       }
     },
     [signIn]
@@ -79,39 +85,33 @@ const SignIn: React.FC = () => {
         <Container>
           <Image source={logo} />
           <Title>Faça seu login</Title>
+          <Input
+            name="email"
+            placeholder="E-mail"
+            icon="mail"
+            autoCorrect={false}
+            autoCapitalize="none"
+            keyboardType="email-address"
+            returnKeyType="next"
+            onChangeText={(email) => setUserEmail(email)}
+          />
+          <Input
+            name="password"
+            placeholder="Senha"
+            icon="lock"
+            secureTextEntry
+            returnKeyType="send"
+            onChangeText={(password) => setUserPassword(password)}
+          />
 
-          <Form ref={formRef} onSubmit={handleSignIn}>
-            <InputUnform
-              name="email"
-              placeholder="E-mail"
-              icon="mail"
-              autoCorrect={false}
-              autoCapitalize="none"
-              keyboardType="email-address"
-              returnKeyType="next"
-              // onSubmitEditing={() => passwordRefInputUnform.current?.focus()}
-            />
-            <InputUnform
-              // ref={passwordRefInputUnform}
-              name="password"
-              placeholder="Senha"
-              icon="lock"
-              secureTextEntry
-              returnKeyType="send"
-              onSubmitEditing={() => {
-                formRef.current?.submitForm();
-              }}
-            />
-
-            <Button
-              style={{ width: 340 }}
-              onPress={() => {
-                formRef.current?.submitForm();
-              }}
-            >
-              Entrar
-            </Button>
-          </Form>
+          <Button
+            style={{ width: 340 }}
+            onPress={() => {
+              handleSignIn(formData);
+            }}
+          >
+            Entrar
+          </Button>
 
           <ForgotPassword
             onPress={() => {

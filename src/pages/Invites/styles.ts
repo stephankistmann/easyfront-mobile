@@ -33,6 +33,7 @@ export const AddTag = styled.TouchableOpacity`
   flex-direction: row;
   background: #f66253;
   margin: 24px;
+  margin-top: 0;
   border-radius: 8px;
   height: 48px;
 `;

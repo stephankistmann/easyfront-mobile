@@ -16,7 +16,7 @@ const Tags: React.FC = () => {
             name="credit-card"
             color="#F66253"
             size={24}
-            style={{ marginRight: 8, marginLeft: 8 }}
+            style={{ marginRight: 8 }}
           />
           <Text style={{ fontWeight: "bold", marginRight: 8 }}>
             Meus Cartões

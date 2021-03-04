@@ -2,6 +2,7 @@ import React from "react";
 import { View, Text } from "react-native";
 import Header from "../../components/Header";
 import Feather from "react-native-vector-icons/Feather";
+import { ScrollView } from "react-native-gesture-handler";
 import InviteItem from "./InviteItem";
 import {
   Container,
@@ -10,9 +11,7 @@ import {
   Line,
   InviteList,
   AddTag,
-  History,
 } from "./styles";
-import { TouchableOpacity } from "react-native-gesture-handler";
 import { useNavigation } from "@react-navigation/native";
 
 const InvitesHistory: React.FC = () => {
@@ -20,7 +19,7 @@ const InvitesHistory: React.FC = () => {
 
   return (
     <Container>
-      <Header />
+      <Header hasBackButton />
       <Main>
         <MainHeader>
           <View style={{ flexDirection: "row", alignItems: "center" }}>
@@ -28,7 +27,7 @@ const InvitesHistory: React.FC = () => {
               name="send"
               color="#F66253"
               size={24}
-              style={{ marginRight: 8, marginLeft: 8 }}
+              style={{ marginRight: 8 }}
             />
             <Text style={{ fontWeight: "bold", marginRight: 8 }}>
               Histórico de Convites
@@ -36,11 +35,13 @@ const InvitesHistory: React.FC = () => {
           </View>
         </MainHeader>
         <Line />
-        <InviteList>
-          <InviteItem />
-        </InviteList>
+        <ScrollView>
+          <InviteList>
+            <InviteItem />
+          </InviteList>
+        </ScrollView>
       </Main>
-      <AddTag>
+      <AddTag onPress={() => navigation.navigate("InvitesAdd")}>
         <Text style={{ color: "#fff", fontWeight: "bold", marginLeft: 16 }}>
           Criar um novo convite
         </Text>

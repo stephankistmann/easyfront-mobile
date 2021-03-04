@@ -1,5 +1,5 @@
 import React from "react";
-import { Image, Text } from "react-native";
+import { Image, Text, View } from "react-native";
 import { Feather } from "@expo/vector-icons";
 import { useAuth } from "../../hooks/auth";
 import Header from "../../components/Header";
@@ -9,26 +9,35 @@ import {
   Main,
   TopContent,
   MessageContainer,
-  ShortcutsContainer,
-  InvitesContainer,
-  Invites,
-  InviteIconBg,
+  MessageContainerTextBold,
+  MessageContainerText,
+  ShortCutsText,
+  ShortCutsContainer,
+  ShortCutsContainerText,
+  ShortCut,
+  ShortCutIconBg,
+  ScrollViewContainer,
 } from "./styles";
 import logo from "../../assets/logo.png";
+import { ScrollView, TouchableOpacity } from "react-native-gesture-handler";
+import { useNavigation } from "@react-navigation/native";
 
 const Home: React.FC = () => {
-  const { signOut, user } = useAuth();
+  const { user } = useAuth();
+  const navigation = useNavigation();
 
   return (
     <Container>
-      <Header name="menu" />
+      <Header />
       <Main>
         <TopContent>
           <MessageContainer>
-            <Text style={{ fontWeight: "bold" }}>Bom dia,</Text>
-            <Text style={{ color: "#383850", opacity: 46 }}>{user.name}</Text>
+            <MessageContainerTextBold>Bom dia,</MessageContainerTextBold>
+            <MessageContainerText>{user.name}</MessageContainerText>
           </MessageContainer>
-          <Feather name="bell" size={24} style={{ marginRight: 16 }} />
+          <TouchableOpacity onPress={() => navigation.navigate("Events")}>
+            <Feather name="bell" size={32} style={{ marginRight: 16 }} />
+          </TouchableOpacity>
         </TopContent>
 
         <Image
@@ -41,55 +50,86 @@ const Home: React.FC = () => {
           }}
         />
 
-        <ShortcutsContainer>
-          <Text style={{ fontWeight: "bold" }}>ATALHOS</Text>
-          <InvitesContainer>
-            <Invites onPress={signOut}>
-              <InviteIconBg>
-                <Feather
-                  name="send"
-                  size={12}
-                  style={{
-                    color: "#fff",
-                  }}
-                />
-              </InviteIconBg>
-              <Text style={{ marginLeft: 8, marginBottom: 8, fontSize: 12 }}>
-                CRIAR CONVITE
-              </Text>
-            </Invites>
+        <Image source={{ uri: user.avatar_url }} />
 
-            <Invites onPress={signOut}>
-              <InviteIconBg>
-                <Feather
-                  name="send"
-                  size={12}
-                  style={{
-                    color: "#fff",
-                  }}
-                />
-              </InviteIconBg>
-              <Text style={{ marginLeft: 8, marginBottom: 8, fontSize: 12 }}>
-                CRIAR CONVITE
-              </Text>
-            </Invites>
+        <ShortCutsText>ATALHOS</ShortCutsText>
+        <ShortCutsContainer>
+          <ScrollViewContainer>
+            <ScrollView
+              horizontal
+              showsHorizontalScrollIndicator={false}
+              style={{ flex: 1 }}
+            >
+              <>
+                <ShortCut
+                  onPress={() =>
+                    navigation.navigate("InvitesStack", {
+                      screen: "InvitesAdd",
+                    })
+                  }
+                >
+                  <ShortCutIconBg>
+                    <Feather
+                      name="send"
+                      size={32}
+                      style={{
+                        color: "#fff",
+                      }}
+                    />
+                  </ShortCutIconBg>
+                  <ShortCutsContainerText>CRIAR CONVITE</ShortCutsContainerText>
+                </ShortCut>
 
-            <Invites onPress={signOut}>
-              <InviteIconBg>
-                <Feather
-                  name="send"
-                  size={12}
-                  style={{
-                    color: "#fff",
-                  }}
-                />
-              </InviteIconBg>
-              <Text style={{ marginLeft: 8, marginBottom: 8, fontSize: 12 }}>
-                CRIAR CONVITE
-              </Text>
-            </Invites>
-          </InvitesContainer>
-        </ShortcutsContainer>
+                <ShortCut
+                  onPress={() =>
+                    navigation.navigate("InvitesStack", {
+                      screen: "InvitesHistory",
+                    })
+                  }
+                >
+                  <ShortCutIconBg>
+                    <Feather
+                      name="send"
+                      size={32}
+                      style={{
+                        color: "#fff",
+                      }}
+                    />
+                  </ShortCutIconBg>
+                  <ShortCutsContainerText>
+                    HISTÓRICO DE CONVITES
+                  </ShortCutsContainerText>
+                </ShortCut>
+
+                <ShortCut onPress={() => navigation.navigate("Devices")}>
+                  <ShortCutIconBg>
+                    <Feather
+                      name="tablet"
+                      size={32}
+                      style={{
+                        color: "#fff",
+                      }}
+                    />
+                  </ShortCutIconBg>
+                  <ShortCutsContainerText>DISPOSITIVOS</ShortCutsContainerText>
+                </ShortCut>
+
+                <ShortCut onPress={() => navigation.navigate("Tags")}>
+                  <ShortCutIconBg>
+                    <Feather
+                      name="credit-card"
+                      size={32}
+                      style={{
+                        color: "#fff",
+                      }}
+                    />
+                  </ShortCutIconBg>
+                  <ShortCutsContainerText>CARTÕES</ShortCutsContainerText>
+                </ShortCut>
+              </>
+            </ScrollView>
+          </ScrollViewContainer>
+        </ShortCutsContainer>
       </Main>
     </Container>
   );

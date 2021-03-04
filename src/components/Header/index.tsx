@@ -44,7 +44,7 @@ const Header: React.FC<IHeader> = ({ hasBackButton }) => {
         </UnitsContainer>
         <Profile>
           <GreenDot />
-          <Avatar onPress={() => console.log("enviar para o profile")}>
+          <Avatar onPress={() => navigation.navigate("Profile")}>
             {user.avatar_url ? (
               <AvatarImage source={{ uri: user.avatar_url }} />
             ) : (

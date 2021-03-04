@@ -1,6 +1,5 @@
 import React, { useCallback, useState } from "react";
 import { TextInputProps } from "react-native";
-import { Value } from "react-native-reanimated";
 import { maskCpf, maskPhone } from "../../utils/masks";
 import { Container, TextInput, Icon } from "./styles";
 
@@ -10,6 +9,7 @@ interface IInputProps extends TextInputProps {
   placeholder: string;
   mask?: "cpf" | "phone";
   inputMaskChange?: any;
+  isCustom?: boolean;
 }
 
 const Input: React.FC<IInputProps> = ({
@@ -18,6 +18,7 @@ const Input: React.FC<IInputProps> = ({
   mask,
   inputMaskChange,
   name,
+  isCustom,
   ...restProps
 }) => {
   const [isFocused, setIsFocused] = useState(false);
@@ -37,9 +38,10 @@ const Input: React.FC<IInputProps> = ({
   }
 
   return (
-    <Container isFocused={isFocused}>
+    <Container isFocused={isFocused} isCustom={isCustom}>
       <Icon name={icon} size={20} color={isFocused ? "#69aaf5" : "#666360"} />
       <TextInput
+        isCustom={isCustom}
         onFocus={handleInputFocus}
         placeholder={placeholder}
         onChangeText={(text: string) => handleChange(text)}

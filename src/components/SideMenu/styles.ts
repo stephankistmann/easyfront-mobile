@@ -13,24 +13,34 @@ export const Profile = styled.View`
   justify-content: center;
 `;
 
-export const Avatar = styled.View`
-  height: 92px;
-  width: 92px;
-  overflow: hidden;
+export const Avatar = styled.Image`
+  width: 84px;
+  height: 84px;
+  border-radius: 42px;
+  align-self: center;
+  border-width: 3px;
+  border-color: #fff;
+`;
+
+export const AvatarBorder = styled.View`
   border-width: 2px;
-  border-color: #de8881;
+  border-style: solid;
+  border-color: #d84839;
+  width: 92px;
+  height: 92px;
   border-radius: 46px;
   align-items: center;
   justify-content: center;
 `;
 
 export const AvatarPlaceholder = styled.View`
-  border-radius: 38px;
   background-color: #c4c4c4;
-  height: 76px;
   width: 76px;
+  height: 76px;
+  border-radius: 38px;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
 `;
 
 export const Menu = styled.Text`
@@ -51,7 +61,7 @@ export const Line = styled.View`
 export const Logout = styled.TouchableOpacity`
   width: 100%;
   flex-direction: row;
-  height: 44px;
+  height: 54px;
   align-items: center;
   padding: 16px;
 `;
