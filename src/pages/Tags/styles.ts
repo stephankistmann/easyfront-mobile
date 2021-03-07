@@ -35,3 +35,19 @@ export const AddTag = styled.TouchableOpacity`
   border-radius: 8px;
   height: 48px;
 `;
+
+export const AddTagText = styled.Text`
+  color: #fff;
+  font-weight: bold;
+  margin-left: 16px;
+`;
+
+export const AddTagContainer = styled.View`
+  background: #f0887e;
+  border-bottom-right-radius: 8px;
+  border-top-right-radius: 8px;
+  height: 48px;
+  width: 48px;
+  justify-content: center;
+  align-items: center;
+`;

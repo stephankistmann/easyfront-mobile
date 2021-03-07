@@ -95,11 +95,12 @@ const SideMenu: React.FC<ISideMenuProps> = ({ navigation, ...props }) => {
             navigation={navigation}
           />
           <MenuItem
-            name="Cartões"
+            name="Tags"
             to={focusedRoute}
             iconName="credit-card"
-            path="Tags"
+            path="TagsStack"
             navigation={navigation}
+            screen="Tags"
           />
           <MenuItem
             name="Perfil"

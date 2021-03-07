@@ -3,10 +3,22 @@ import { View, Text } from "react-native";
 import Header from "../../components/Header";
 import Feather from "react-native-vector-icons/Feather";
 import TagItem from "./TagItem";
-import { Container, Main, MainHeader, Line, TagList, AddTag } from "./styles";
+import {
+  Container,
+  Main,
+  MainHeader,
+  Line,
+  TagList,
+  AddTag,
+  AddTagText,
+  AddTagContainer,
+} from "./styles";
 import { TouchableOpacity } from "react-native-gesture-handler";
+import { useNavigation } from "@react-navigation/native";
 
 const Tags: React.FC = () => {
+  const navigation = useNavigation();
+
   return (
     <Container>
       <Header />
@@ -19,7 +31,7 @@ const Tags: React.FC = () => {
             style={{ marginRight: 8 }}
           />
           <Text style={{ fontWeight: "bold", marginRight: 8 }}>
-            Meus Cartões
+            Minhas Tags
           </Text>
           <TouchableOpacity>
             <Feather name="info" size={14} style={{ marginTop: 2 }} />
@@ -30,23 +42,11 @@ const Tags: React.FC = () => {
           <TagItem />
         </TagList>
       </Main>
-      <AddTag>
-        <Text style={{ color: "#fff", fontWeight: "bold", marginLeft: 16 }}>
-          Adicionar Cartão
-        </Text>
-        <View
-          style={{
-            backgroundColor: "#F0887E",
-            borderBottomRightRadius: 8,
-            borderTopRightRadius: 8,
-            height: 48,
-            width: 48,
-            justifyContent: "center",
-            alignItems: "center",
-          }}
-        >
+      <AddTag onPress={() => navigation.navigate("TagsAdd")}>
+        <AddTagText>Adicionar tag</AddTagText>
+        <AddTagContainer>
           <Feather name="plus" size={30} color="#fff" />
-        </View>
+        </AddTagContainer>
       </AddTag>
     </Container>
   );

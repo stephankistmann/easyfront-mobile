@@ -124,7 +124,7 @@ const Home: React.FC = () => {
                       }}
                     />
                   </ShortCutIconBg>
-                  <ShortCutsContainerText>CARTÕES</ShortCutsContainerText>
+                  <ShortCutsContainerText>TAGS</ShortCutsContainerText>
                 </ShortCut>
               </>
             </ScrollView>

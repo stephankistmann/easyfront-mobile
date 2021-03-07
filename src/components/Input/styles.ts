@@ -7,10 +7,6 @@ interface IContainerProps {
   isCustom: boolean;
 }
 
-interface ITextInputProps {
-  isCustom: boolean;
-}
-
 export const Container = styled.View<IContainerProps>`
   background: #ffffff;
   border-width: 1px;

@@ -112,7 +112,7 @@ const InvitesAdd: React.FC = () => {
       if (selected) {
         setLoading(true);
         const response = await api.get(
-          `/superunities/${selected?.superUnit.id}/invites/types`,
+          `/accesses/${selected?.id}/invites/types`,
           { params: { per_page: 100 } }
         );
 
@@ -150,9 +150,15 @@ const InvitesAdd: React.FC = () => {
         abortEarly: false,
       });
 
-      console.log(data);
+      const response = await api.post(
+        `/accesses/${selected?.id}/invites`,
+        data
+      );
 
-      await api.post(`/accesses/${selected?.id}/invites`, data);
+      navigation.navigate("InvitesStack", {
+        screen: "InvitesCreated",
+        params: { code: response.data.code },
+      });
     } catch (err) {
       if (err instanceof Yup.ValidationError) {
         const errors = getValidationErrors(err);
@@ -163,9 +169,6 @@ const InvitesAdd: React.FC = () => {
         );
         return;
       }
-      navigation.navigate("InvitesStack", {
-        screen: "InvitesCreated",
-      });
     }
   }, [selectedInviteType, weekDays, guest, timeRestrictions, expire_date]);
 
