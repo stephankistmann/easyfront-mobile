@@ -7,6 +7,7 @@ export const Container = styled.View`
   flex: 1;
   justify-content: center;
   align-items: center;
+  margin: 0 24px 0 24px;
 `;
 
 export const Title = styled.View`
@@ -86,3 +87,31 @@ export const ChevronDown = styled(Feather)`
 `;
 
 export const StyledSelectIOS = styled(SelectIOS)``;
+
+export const SaveButton = styled.TouchableOpacity`
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  background: #f66253;
+  margin: 24px;
+  margin-top: 0;
+  border-radius: 8px;
+  height: 48px;
+  width: 100%;
+`;
+
+export const SaveButtonText = styled.Text`
+  color: #fff;
+  font-weight: bold;
+  margin-left: 16px;
+`;
+
+export const SaveButtonIconView = styled.View`
+  background-color: #f0887e;
+  border-bottom-right-radius: 8px;
+  border-top-right-radius: 8px;
+  height: 48px;
+  width: 48px;
+  justify-content: center;
+  align-items: center;
+`;

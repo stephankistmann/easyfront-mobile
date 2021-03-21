@@ -22,7 +22,7 @@ export const CreditCardBackground = styled.View`
 `;
 
 export const TrashBackground = styled.TouchableOpacity`
-  background: #dedede;
+  background: #f5fbff;
   height: 32px;
   width: 32px;
   border-radius: 8px;

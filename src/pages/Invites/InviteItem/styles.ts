@@ -6,10 +6,6 @@ interface DotProps {
 
 export const Container = styled.View`
   width: 100%;
-  flex-direction: column;
-`;
-
-export const InviteContianer = styled.View`
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
@@ -47,7 +43,7 @@ export const TextContainer = styled.View`
 `;
 
 export const TrashBackground = styled.TouchableOpacity`
-  background: #dedede;
+  background: #f5fbff;
   height: 40px;
   width: 40px;
   border-radius: 8px;

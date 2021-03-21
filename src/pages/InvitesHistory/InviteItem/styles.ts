@@ -37,7 +37,7 @@ export const TextContainer = styled.View`
 `;
 
 export const TrashBackground = styled.TouchableOpacity`
-  background: #dedede;
+  background: #f5fbff;
   height: 40px;
   width: 40px;
   border-radius: 8px;
@@ -54,7 +54,7 @@ export const RightContent = styled.View`
 `;
 
 export const UsesContainer = styled.View`
-  border: 1px solid #dedede;
+  border: 1px solid #f5fbff;
   height: 40px;
   width: 40px;
   border-radius: 8px;

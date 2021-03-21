@@ -15,7 +15,8 @@ export const Selected = styled.View`
   justify-content: space-between;
   align-items: center;
   padding: 8px;
-  background: #e5e5e9;
+  /* background: #e5e5e9; */
+  background: #f5fbff;
   height: 64px;
   border-radius: 8px;
   width: 80%;
@@ -27,8 +28,8 @@ export const Selected = styled.View`
 export const IconBackground = styled.View`
   align-items: center;
   justify-content: center;
-  height: 44px;
-  width: 44px;
+  height: 42px;
+  width: 42px;
   margin-right: 16px;
   background: #0e0e2c;
   border-radius: 8px;

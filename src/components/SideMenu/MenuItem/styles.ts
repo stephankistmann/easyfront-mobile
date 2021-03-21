@@ -18,7 +18,7 @@ export const Container = styled.TouchableOpacity<ContainerProps>`
     props.isSelected &&
     css`
       color: #fff;
-      background: #eee;
+      background: #f5fbff; ;
     `}
 `;
 

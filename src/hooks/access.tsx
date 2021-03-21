@@ -60,7 +60,9 @@ const AccessProvider: React.FC = ({ children }) => {
       setLoading(false);
     }
 
-    getData();
+    if (token) {
+      getData();
+    }
   }, [token]);
 
   return (

@@ -3,6 +3,7 @@ import styled from "styled-components/native";
 export const Container = styled.View`
   flex: 1;
   justify-content: space-between;
+  background: #fff;
 `;
 
 export const Main = styled.View`
@@ -74,7 +75,7 @@ export const QrCodeButton = styled.TouchableOpacity`
   border-bottom-right-radius: 8px;
   width: 15%;
   height: 50px;
-  background: #eeeeee;
+  background: #ebf7ff;
   align-items: center;
   justify-content: center;
 `;

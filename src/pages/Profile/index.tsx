@@ -1,16 +1,9 @@
 import React, { useCallback, useMemo, useState, useEffect } from "react";
-import {
-  ScrollView,
-  KeyboardAvoidingView,
-  Platform,
-  Alert,
-  Text,
-} from "react-native";
+import { ScrollView, Platform, Alert, Text } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { useAuth, IUser } from "../../hooks/auth";
 import * as Yup from "yup";
 import Input from "../../components/Input";
-import Button from "../../components/Button";
 
 import getValidationErrors from "../../utils/getValidationErrors";
 
@@ -21,11 +14,12 @@ import {
   UserAvatarButton,
   UserAvatar,
   AvatarPlaceholder,
-  SelectGenderNature,
   SelectContainer,
-  CameraBackground,
   ChevronDown,
   StyledSelectIOS,
+  SaveButton,
+  SaveButtonText,
+  SaveButtonIconView,
 } from "./styles";
 import Header from "../../components/Header";
 import Feather from "react-native-vector-icons/Feather";
@@ -73,16 +67,16 @@ const Profile: React.FC = () => {
     setUserData((oldUser) => ({ ...oldUser, [field]: value }));
   }, []);
 
-  useEffect(() => {
-    (async () => {
-      const {
-        status,
-      } = await ImagePicker.requestMediaLibraryPermissionsAsync();
-      if (status !== "granted") {
-        alert("Desculpe, precisamos de permissões do rolo da câmera!");
-      }
-    })();
-  }, []);
+  // useEffect(() => {
+  //   (async () => {
+  //     const {
+  //       status,
+  //     } = await ImagePicker.requestMediaLibraryPermissionsAsync();
+  //     if (status !== "granted") {
+  //       alert("Desculpe, precisamos de permissões do rolo da câmera!");
+  //     }
+  //   })();
+  // }, []);
 
   const handleUpdateAvatar = async () => {
     const result = await ImagePicker.launchImageLibraryAsync({
@@ -352,7 +346,12 @@ const Profile: React.FC = () => {
               /> */}
         </SelectContainer>
 
-        <Button onPress={() => handleSubmit(userData)}>Salvar</Button>
+        <SaveButton onPress={() => handleSubmit(userData)}>
+          <SaveButtonText>Salvar</SaveButtonText>
+          <SaveButtonIconView>
+            <Feather name="save" size={24} color="#fff" />
+          </SaveButtonIconView>
+        </SaveButton>
       </Container>
     </ScrollView>
   );

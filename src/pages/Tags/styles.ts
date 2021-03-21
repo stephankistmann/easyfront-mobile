@@ -2,6 +2,7 @@ import styled from "styled-components/native";
 
 export const Container = styled.View`
   flex: 1;
+  background: #fff;
 `;
 
 export const Main = styled.View`
@@ -22,9 +23,7 @@ export const Line = styled.View`
   margin-bottom: 5%;
 `;
 
-export const TagList = styled.View`
-  flex-direction: row;
-`;
+export const TagList = styled.View``;
 
 export const AddTag = styled.TouchableOpacity`
   justify-content: space-between;

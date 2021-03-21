@@ -55,11 +55,7 @@ const Home: React.FC = () => {
         <ShortCutsText>ATALHOS</ShortCutsText>
         <ShortCutsContainer>
           <ScrollViewContainer>
-            <ScrollView
-              horizontal
-              showsHorizontalScrollIndicator={false}
-              style={{ flex: 1 }}
-            >
+            <ScrollView horizontal showsHorizontalScrollIndicator={false}>
               <>
                 <ShortCut
                   onPress={() =>

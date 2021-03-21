@@ -2,6 +2,7 @@ import styled from "styled-components/native";
 
 export const Container = styled.View`
   flex: 1;
+  background: #fff;
 `;
 
 export const Main = styled.View`
@@ -109,7 +110,7 @@ export const ValidTilText = styled.Text`
 export const ExpirationDateContainer = styled.View`
   height: 50px;
   border-radius: 8px;
-  background: #dedede;
+  background: #f5fbff;
   padding: 16px;
   flex-direction: row;
 `;

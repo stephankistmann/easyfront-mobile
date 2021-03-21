@@ -23,9 +23,7 @@ export const Line = styled.View`
   margin-bottom: 5%;
 `;
 
-export const EventList = styled.View`
-  flex-direction: row;
-`;
+export const EventList = styled.View``;
 
 export const AddTag = styled.TouchableOpacity`
   justify-content: space-between;

@@ -40,7 +40,10 @@ const Select: React.FC<SelectProps> = ({ value, options, onChange }) => {
           <Picker.Item
             key={option.id}
             value={option.id}
-            label={option.label || (option.unit.name && option.unit.name)}
+            label={
+              option.label || option.superUnit?.name + " - " + option.unit.name
+            }
+            // label={option.superUnit?.name + " - " + option.unit.name}
           ></Picker.Item>
         ))}
     </Picker>

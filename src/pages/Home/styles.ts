@@ -21,7 +21,7 @@ export const TopContent = styled.View`
 
 export const MessageContainer = styled.View`
   justify-content: space-between;
-  background: #dedede;
+  background: #f5fbff;
   border-radius: 8px;
   padding: 8px;
 `;
@@ -58,11 +58,11 @@ export const ShortCutsContainerText = styled.Text`
 
 export const ShortCut = styled(RectButton)`
   margin-left: 8px;
-  min-width: 40%;
-  background: #dedede;
+  background: #f5fbff;
   border-radius: 16px;
   align-items: center;
-  padding: 24px;
+  width: 190px;
+  padding: 16px 24px 16px 24px;
 `;
 
 export const ShortCutIconBg = styled.View`
@@ -80,4 +80,6 @@ export const ScrollViewContainer = styled.View`
   width: ${width}px;
   top: 0;
   left: -14px;
+  padding: 0 8px 0 8px;
+  justify-content: space-between;
 `;

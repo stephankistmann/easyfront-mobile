@@ -1,5 +1,5 @@
 import React, { useMemo } from "react";
-import { Text, Image } from "react-native";
+import { Text } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import {
   Container,

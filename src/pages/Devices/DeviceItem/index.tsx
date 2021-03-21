@@ -18,93 +18,36 @@ import {
 interface IDevice {
   id: string;
   name: string;
+  handleOpenDevice: (id: string) => void;
 }
 
-const DeviceItem: React.FC = () => {
-  const { selected } = useAccess();
-  const [devices, setDevices] = useState<IDevice[]>([]);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    async function getData() {
-      setLoading(true);
-      if (selected) {
-        const response = await api.get(`/accesses/${selected.id}/devices`);
-
-        if (!response) return;
-
-        setDevices(response.data.data);
-      }
-      setLoading(false);
-    }
-
-    getData();
-  }, [selected]);
-
-  const handleOpenDevice = useCallback(
-    async (id: string) => {
-      console.log(id, selected?.superUnit_id, selected?.id);
-
-      try {
-        await api.post(
-          `/superunities/${selected?.superUnit_id}/devices/${id}/open`
-        );
-
-        Alert.alert(
-          "Dispositivo aberto",
-          "O dispositivo foi aberto com sucesso."
-        );
-      } catch (err) {
-        console.log(err);
-
-        Alert.alert(
-          "Erro ao abrir dispositivo",
-          "Ocorreu um erro ao abrir o dispositivo, tente novamente."
-        );
-
-        return;
-      }
-    },
-    [selected]
-  );
-
+const DeviceItem: React.FC<IDevice> = ({ id, name, handleOpenDevice }) => {
   return (
     <Container>
-      {loading ? (
-        <ActivityIndicator />
-      ) : (
-        <>
-          {devices &&
-            devices.map((device) => (
-              <DeviceContainer key={device.id}>
-                <LeftContent>
-                  <DeviceIconBackground>
-                    <Dot />
-                    <Feather
-                      name="tablet"
-                      size={20}
-                      color="#fff"
-                      style={{ position: "absolute", bottom: 10, left: 10 }}
-                    />
-                  </DeviceIconBackground>
-                  <TextContainer>
-                    <Text style={{ fontSize: 14, fontWeight: "bold" }}>
-                      {device.name}
-                    </Text>
-                  </TextContainer>
-                </LeftContent>
-                <RightContent>
-                  {/* <CameraButton>
+      <DeviceContainer key={id}>
+        <LeftContent>
+          <DeviceIconBackground>
+            <Dot />
+            <Feather
+              name="tablet"
+              size={20}
+              color="#fff"
+              style={{ position: "absolute", bottom: 10, left: 10 }}
+            />
+          </DeviceIconBackground>
+          <TextContainer>
+            <Text style={{ fontSize: 14, fontWeight: "bold" }}>{name}</Text>
+          </TextContainer>
+        </LeftContent>
+        <RightContent>
+          {/* <CameraButton>
                     <Feather name="camera" size={20} color="#0e0e2c" />
                   </CameraButton> */}
-                  <KeyButton onPress={() => handleOpenDevice(device.id)}>
-                    <Feather name="key" size={20} color="#fff" />
-                  </KeyButton>
-                </RightContent>
-              </DeviceContainer>
-            ))}
-        </>
-      )}
+          <KeyButton onPress={() => handleOpenDevice(id)}>
+            <Feather name="key" size={20} color="#fff" />
+          </KeyButton>
+        </RightContent>
+      </DeviceContainer>
     </Container>
   );
 };

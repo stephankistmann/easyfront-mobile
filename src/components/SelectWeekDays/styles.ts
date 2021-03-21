@@ -13,7 +13,7 @@ export const Container = styled.View`
   width: 100%;
   flex-direction: row;
   justify-content: space-around;
-  background: #dedede;
+  background: #f5fbff;
   padding: 8px;
   border-radius: 8px;
 `;

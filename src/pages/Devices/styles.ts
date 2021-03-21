@@ -23,6 +23,4 @@ export const Line = styled.View`
   margin-bottom: 5%;
 `;
 
-export const DeviceList = styled.View`
-  flex-direction: row;
-`;
+export const DeviceList = styled.View``;

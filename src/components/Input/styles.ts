@@ -10,7 +10,7 @@ interface IContainerProps {
 export const Container = styled.View<IContainerProps>`
   background: #ffffff;
   border-width: 1px;
-  border-color: #dfe9eb;
+  border-color: #f5fbff;
   border-radius: 8px;
   padding: 16px;
   margin-bottom: 8px;
@@ -35,7 +35,7 @@ export const Container = styled.View<IContainerProps>`
       ${(props: any) =>
     props.isCustom &&
     css`
-      background: #dedede;
+      background: #f5fbff;
       color: #707070;
     `}
 `;

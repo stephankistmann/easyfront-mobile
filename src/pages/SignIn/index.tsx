@@ -15,6 +15,7 @@ import { useAuth } from "../../hooks/auth";
 
 import logo from "../../assets/logo.png";
 import { Container, Title, ForgotPassword, ForgotPasswordText } from "./styles";
+import { useNavigation } from "@react-navigation/native";
 
 interface ISignInFormData {
   email: string;
@@ -34,6 +35,7 @@ const SignIn: React.FC = () => {
   );
   const [userEmail, setUserEmail] = useState<string>();
   const [userPassword, setUserPassword] = useState<string>();
+  const navigation = useNavigation();
 
   const { signIn } = useAuth();
 
@@ -65,8 +67,6 @@ const SignIn: React.FC = () => {
           "Erro na autenticação",
           "Ocorreu um erro ao fazer login, cheque seu e-mail e/ou senha."
         );
-
-        console.log(err);
       }
     },
     [signIn]
@@ -113,11 +113,7 @@ const SignIn: React.FC = () => {
             Entrar
           </Button>
 
-          <ForgotPassword
-            onPress={() => {
-              console.log("aaa");
-            }}
-          >
+          <ForgotPassword onPress={() => navigation.navigate("ForgotPassword")}>
             <ForgotPasswordText>Esqueci minha senha</ForgotPasswordText>
           </ForgotPassword>
         </Container>

@@ -5,7 +5,7 @@ export const Container = styled.View``;
 export const ShowDatePickerButton = styled.TouchableOpacity`
   height: 50px;
   border-radius: 8px;
-  background: #dedede;
+  background: #f5fbff;
   padding: 16px;
   flex-direction: row;
 `;
