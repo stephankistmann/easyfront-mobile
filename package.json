@@ -39,6 +39,7 @@
     "react-native-web": "~0.13.12",
     "rn-range-slider": "^2.0.4",
     "styled-components": "^5.2.1",
+    "unimodules": "^1.0.0",
     "yup": "^0.32.8"
   },
   "devDependencies": {

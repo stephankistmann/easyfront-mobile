@@ -6599,6 +6599,11 @@ unimodules-task-manager-interface@~5.4.0:
   resolved "https://registry.yarnpkg.com/unimodules-task-manager-interface/-/unimodules-task-manager-interface-5.4.0.tgz#f971a93fe86a12a4b8f43e590726492148ec4753"
   integrity sha512-5QvPqR41fg9tsce+H6ZBzHxSbce+xPUWKoPZiP5pF4Gq4C3r0AdAfQXz+KkzTDrpj7EqNrjG0xkUfPKmizZ55Q==
 
+unimodules@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/unimodules/-/unimodules-1.0.0.tgz#669998c0aa4efe03a7860441d92dd35fe2c2c861"
+  integrity sha512-GV+S8O3VSHAnFNRMs6mwVfLGANuwu39UPJpCDAG75eqO3l3PCTHUJN4oqZqha6X3Zx1coXm22hPu9ahAVpE3/g==
+
 union-value@^1.0.0:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/union-value/-/union-value-1.0.1.tgz#0b6fe7b835aecda61c6ea4d4f02c14221e109847"
