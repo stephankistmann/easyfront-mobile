@@ -71,14 +71,26 @@ export const InputOrQrCodeContainer = styled.View`
 `;
 
 export const QrCodeButton = styled.TouchableOpacity`
-  border-top-right-radius: 8px;
-  border-bottom-right-radius: 8px;
-  width: 15%;
+  /* border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px; */
+  border-radius: 8px;
+  width: 100%;
   height: 50px;
   background: #ebf7ff;
-  align-items: center;
+  /* align-items: space-between; */
   justify-content: center;
+  align-items: center;
 `;
+
+export const QrCodeButtonContainer = styled.View`
+  width: 100%;
+  padding: 16px;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+`;
+
+export const QrCodeButtonText = styled.Text``;
 
 export const QRCodeAndAddTagContainer = styled.View``;
 
@@ -110,3 +122,5 @@ export const AddTagContainer = styled.View`
   justify-content: center;
   align-items: center;
 `;
+
+export const Modal = styled.Modal``;

@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from "react";
 import {
-  View,
-  Text,
   ActivityIndicator,
   NativeScrollEvent,
   NativeSyntheticEvent,
@@ -14,12 +12,17 @@ import { ScrollView } from "react-native-gesture-handler";
 import InviteItem from "./InviteItem";
 import {
   Container,
+  TitleContainer,
+  TitleText,
   Main,
   MainHeader,
   Line,
   InviteList,
-  AddTag,
+  AddInvite,
+  AddInviteText,
+  AddInvitePlusIconContainer,
   History,
+  HistoryText,
 } from "./styles";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import { useNavigation } from "@react-navigation/native";
@@ -89,16 +92,16 @@ const Invites: React.FC = () => {
     }
   };
 
-  async function handleDelete(id: string) {
+  const handleDelete = async (id: string) => {
     const deleteInvite = invites.find((invite) => invite.id === id);
 
     await api.delete(`/accesses/${selected?.id}/invites/${deleteInvite?.id}`);
 
     setInvites((oldInvite) => oldInvite.filter((invite) => invite.id !== id));
-  }
+  };
 
   useEffect(() => {
-    async function getData() {
+    const getData = async () => {
       setLoading(true);
       if (selected) {
         const response = await api.get(`/accesses/${selected.id}/invites`, {
@@ -112,7 +115,7 @@ const Invites: React.FC = () => {
         setTotalPages(response.data.total_pages);
       }
       setLoading(false);
-    }
+    };
 
     if (selected) {
       getData();
@@ -124,23 +127,21 @@ const Invites: React.FC = () => {
       <Header />
       <Main>
         <MainHeader>
-          <View style={{ flexDirection: "row", alignItems: "center" }}>
+          <TitleContainer>
             <Feather
               name="send"
               color="#F66253"
               size={24}
               style={{ marginRight: 8 }}
             />
-            <Text style={{ fontWeight: "bold", marginRight: 8 }}>
-              Meus Convites
-            </Text>
+            <TitleText>Meus Convites</TitleText>
 
             <TouchableOpacity>
               <Feather name="info" size={14} style={{ marginTop: 2 }} />
             </TouchableOpacity>
-          </View>
+          </TitleContainer>
           <History onPress={() => navigation.navigate("InvitesHistory")}>
-            <Text style={{ fontSize: 12 }}>Histórico</Text>
+            <HistoryText>Histórico</HistoryText>
             <Feather name="rotate-ccw" size={10} style={{ marginTop: 2 }} />
           </History>
         </MainHeader>
@@ -159,32 +160,20 @@ const Invites: React.FC = () => {
             ))}
           </InviteList>
         </ScrollView>
-        {loading && <ActivityIndicator color="#000" />}
+        {loading && <ActivityIndicator color="#ccc" />}
       </Main>
-      <AddTag
+      <AddInvite
         onPress={() =>
           navigation.navigate("InvitesStack", {
             screen: "InvitesAdd",
           })
         }
       >
-        <Text style={{ color: "#fff", fontWeight: "bold", marginLeft: 16 }}>
-          Criar um novo convite
-        </Text>
-        <View
-          style={{
-            backgroundColor: "#F0887E",
-            borderBottomRightRadius: 8,
-            borderTopRightRadius: 8,
-            height: 48,
-            width: 48,
-            justifyContent: "center",
-            alignItems: "center",
-          }}
-        >
+        <AddInviteText>Criar um novo convite</AddInviteText>
+        <AddInvitePlusIconContainer>
           <Feather name="plus" size={30} color="#fff" />
-        </View>
-      </AddTag>
+        </AddInvitePlusIconContainer>
+      </AddInvite>
     </Container>
   );
 };

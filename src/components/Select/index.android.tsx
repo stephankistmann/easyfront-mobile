@@ -41,9 +41,8 @@ const Select: React.FC<SelectProps> = ({ value, options, onChange }) => {
             key={option.id}
             value={option.id}
             label={
-              option.label || option.superUnit?.name + " - " + option.unit.name
+              option.label || option.superUnit?.name + " - " + option.unit?.name
             }
-            // label={option.superUnit?.name + " - " + option.unit.name}
           ></Picker.Item>
         ))}
     </Picker>

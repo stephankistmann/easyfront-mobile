@@ -13,6 +13,10 @@ export const Profile = styled.View`
   justify-content: center;
 `;
 
+export const ProfileText = styled.Text`
+  margin-top: 20px;
+`;
+
 export const Avatar = styled.Image`
   width: 84px;
   height: 84px;
@@ -41,6 +45,12 @@ export const AvatarPlaceholder = styled.View`
   align-items: center;
   justify-content: center;
   overflow: hidden;
+`;
+
+export const AvatarPlaceholderText = styled.Text`
+  font-weight: bold;
+  font-size: 28px;
+  color: #fff;
 `;
 
 export const Menu = styled.Text`

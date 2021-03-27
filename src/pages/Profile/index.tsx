@@ -1,5 +1,5 @@
-import React, { useCallback, useMemo, useState, useEffect } from "react";
-import { ScrollView, Platform, Alert, Text } from "react-native";
+import React, { useCallback, useMemo, useState } from "react";
+import { ScrollView, Platform, Alert } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { useAuth, IUser } from "../../hooks/auth";
 import * as Yup from "yup";
@@ -10,11 +10,15 @@ import getValidationErrors from "../../utils/getValidationErrors";
 import {
   Container,
   Title,
+  TitleText,
   Line,
   UserAvatarButton,
   UserAvatar,
   AvatarPlaceholder,
+  AvatarPlaceholderText,
+  UserName,
   SelectContainer,
+  SelectText,
   ChevronDown,
   StyledSelectIOS,
   SaveButton,
@@ -107,8 +111,6 @@ const Profile: React.FC = () => {
     });
   };
 
-  console.log(user.avatar_url);
-
   const genders = [
     {
       label: "Masculino",
@@ -171,9 +173,9 @@ const Profile: React.FC = () => {
     [updateUser, navigation]
   );
 
-  function handleMaskChange(field: string, value: string) {
+  const handleMaskChange = (field: string, value: string) => {
     setUserData((oldData) => ({ ...oldData, [field]: value }));
-  }
+  };
 
   return (
     <ScrollView keyboardShouldPersistTaps="handled" style={{ flex: 1 }}>
@@ -181,17 +183,7 @@ const Profile: React.FC = () => {
       <Container>
         <Title>
           <Feather name="user" size={20} color="#0e0e2c" />
-          <Text
-            style={{
-              color: "#0e0e2c",
-              fontWeight: "bold",
-              marginLeft: 8,
-              marginTop: 2,
-              fontSize: 16,
-            }}
-          >
-            Editar Perfil
-          </Text>
+          <TitleText>Editar Perfil</TitleText>
         </Title>
         <Line />
         <UserAvatarButton onPress={handleUpdateAvatar}>
@@ -201,19 +193,10 @@ const Profile: React.FC = () => {
           <UserAvatar source={{ uri: user.avatar_url }} />
         ) : (
           <AvatarPlaceholder>
-            <Text
-              style={{
-                fontSize: 32,
-                color: "#fff",
-              }}
-            >
-              {initials}
-            </Text>
+            <AvatarPlaceholderText>{initials}</AvatarPlaceholderText>
           </AvatarPlaceholder>
         )}
-        <Text style={{ marginTop: 16, marginBottom: 24, fontWeight: "bold" }}>
-          {user.name}
-        </Text>
+        <UserName>{user.name}</UserName>
         <Input
           name="name"
           autoCapitalize="words"
@@ -222,9 +205,6 @@ const Profile: React.FC = () => {
           returnKeyType="next"
           defaultValue={userData.name}
           onChangeText={(name: string) => handleChangeUserField("name", name)}
-          // onSubmitEditing={() => {
-          //   emailInputRef.current?.focus();
-          // }}
         />
 
         <Input
@@ -271,13 +251,13 @@ const Profile: React.FC = () => {
         />
 
         <SelectContainer>
-          <Text>
+          <SelectText>
             {userData.gender &&
               userData.gender
                 .replace("female", "Feminino")
                 .replace("male", "Masculino")
                 .replace("not-informed", "Não-informado")}
-          </Text>
+          </SelectText>
 
           {Platform.OS === "android" ? (
             <>
@@ -302,13 +282,13 @@ const Profile: React.FC = () => {
         </SelectContainer>
 
         <SelectContainer>
-          <Text>
+          <SelectText>
             {userData.nature &&
               userData.nature
                 .replace("juridic", "Jurídico")
                 .replace("physic", "Físico")
                 .replace("not-informed", "Não-informado")}
-          </Text>
+          </SelectText>
 
           {Platform.OS === "android" ? (
             <>
@@ -330,20 +310,6 @@ const Profile: React.FC = () => {
               options={natures}
             />
           )}
-          {/* <Text>
-                {userData.nature &&
-                  userData.nature
-                    .replace("juridic", "Jurídico")
-                    .replace("physic", "Físico")
-                    .replace("not-informed", "Não-informado")}
-              </Text>
-              <Select
-                value={userData.nature}
-                onChange={(nature: string) =>
-                  handleChangeUserField("nature", nature)
-                }
-                options={natures}
-              /> */}
         </SelectContainer>
 
         <SaveButton onPress={() => handleSubmit(userData)}>

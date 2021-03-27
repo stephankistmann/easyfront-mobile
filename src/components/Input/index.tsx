@@ -27,7 +27,7 @@ const Input: React.FC<IInputProps> = ({
     setIsFocused(true);
   }, []);
 
-  function handleChange(text: string) {
+  const handleChange = (text: string) => {
     if (mask === "cpf") {
       const value = maskCpf(text);
       inputMaskChange(value);
@@ -35,7 +35,7 @@ const Input: React.FC<IInputProps> = ({
       const value = maskPhone(text);
       inputMaskChange(value);
     }
-  }
+  };
 
   return (
     <Container isFocused={isFocused} isCustom={isCustom}>

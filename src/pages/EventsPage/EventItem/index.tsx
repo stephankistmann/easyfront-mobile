@@ -1,12 +1,13 @@
-import React, { useEffect, useState } from "react";
-import { ActivityIndicator, Text } from "react-native";
+import React from "react";
 import Feather from "react-native-vector-icons/Feather";
 import {
   Container,
   IconBackground,
   PhotoIconBackground,
   EventContainer,
-  TextContainer,
+  NameContainer,
+  NameText,
+  DateText,
   Arrow,
   LeftContent,
   RightContent,
@@ -51,12 +52,10 @@ const EventItem: React.FC<IEvents> = ({
               style={{ position: "absolute", bottom: 10, left: 10 }}
             />
           </IconBackground>
-          <TextContainer>
-            <Text style={{ fontSize: 14, fontWeight: "bold" }}>
-              {device.name}
-            </Text>
-            <Text style={{ fontSize: 12, color: "#aaa" }}>{date}</Text>
-          </TextContainer>
+          <NameContainer>
+            <NameText>{device.name}</NameText>
+            <DateText>{date}</DateText>
+          </NameContainer>
         </LeftContent>
         <RightContent>
           <PhotoIconBackground onPress={() => console.log(id)}>

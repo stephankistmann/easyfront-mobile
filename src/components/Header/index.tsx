@@ -1,5 +1,4 @@
 import React, { useMemo } from "react";
-import { Text } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import {
   Container,
@@ -10,6 +9,7 @@ import {
   Avatar,
   AvatarImage,
   AvatarPlaceholder,
+  AvatarPlaceholderText,
   GreenDot,
 } from "./styles";
 import Feather from "react-native-vector-icons/Feather";
@@ -49,15 +49,7 @@ const Header: React.FC<IHeader> = ({ hasBackButton }) => {
               <AvatarImage source={{ uri: user.avatar_url }} />
             ) : (
               <AvatarPlaceholder>
-                <Text
-                  style={{
-                    fontWeight: "bold",
-                    fontSize: 20,
-                    color: "#fff",
-                  }}
-                >
-                  {initials}
-                </Text>
+                <AvatarPlaceholderText>{initials}</AvatarPlaceholderText>
               </AvatarPlaceholder>
             )}
           </Avatar>

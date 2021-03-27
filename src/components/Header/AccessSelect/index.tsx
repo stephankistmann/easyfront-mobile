@@ -1,7 +1,7 @@
 import React from "react";
-import { ActivityIndicator, Text, View } from "react-native";
+import { ActivityIndicator } from "react-native";
 import { useAccess } from "../../../hooks/access";
-import { Container, Selected } from "./styles";
+import { Container, Selected, Unit, UnitName, SuperUnitName } from "./styles";
 
 const AccessSelect: React.FC = () => {
   const { selected, loading } = useAccess();
@@ -13,12 +13,10 @@ const AccessSelect: React.FC = () => {
           <ActivityIndicator />
         ) : (
           <>
-            <View>
-              <Text style={{ fontWeight: "bold", textAlign: "right" }}>
-                {selected?.superUnit.name}
-              </Text>
-              <Text style={{ textAlign: "right" }}>{selected?.unit.name}</Text>
-            </View>
+            <Unit>
+              <SuperUnitName>{selected?.superUnit.name}</SuperUnitName>
+              <UnitName>{selected?.unit.name}</UnitName>
+            </Unit>
           </>
         )}
       </Selected>

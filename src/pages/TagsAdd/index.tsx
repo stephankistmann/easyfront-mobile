@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useCallback, useState } from "react";
 import Header from "../../components/Header";
-import { Image } from "react-native";
+import { Alert, Button, Image } from "react-native";
 import qrcodeIcon from "../../assets/qrcode-icon.png";
 import qrcode from "../../assets/qrcode.png";
 import { ScrollView } from "react-native-gesture-handler";
-import InputTouachableOpacity from "./InputTouchableOpacity";
+import * as Yup from "yup";
+import QRScanner from "../../components/QRScanner";
 import {
   Container,
   Main,
@@ -18,16 +19,68 @@ import {
   DescriptionContainerOptionText,
   InputOrQrCodeContainer,
   QrCodeButton,
+  QrCodeButtonText,
   QRCodeAndAddTagContainer,
   AddTag,
   AddTagText,
   AddTagContainer,
+  Modal,
+  QrCodeButtonContainer,
 } from "./styles";
 import { useNavigation } from "@react-navigation/native";
 import Feather from "react-native-vector-icons/Feather";
+import api from "../../services/api";
+import getValidationErrors from "../../utils/getValidationErrors";
+
+interface IQRCode {
+  serial: string;
+}
 
 const TagsAdd: React.FC = () => {
+  const [isOpen, setIsOpen] = useState(false);
   const navigation = useNavigation();
+  const [serial, setSerial] = useState<IQRCode>();
+  const [hasSerial, setHasSerial] = useState(false);
+
+  const onCodeScanned = (data: any) => {
+    setSerial(data.data);
+    console.log(data.data);
+    setIsOpen(false);
+    setHasSerial(true);
+  };
+
+  const handleCreateTag = useCallback(async () => {
+    console.log(serial);
+
+    if (serial) {
+      try {
+        // await schema.validate(data, {
+        //   abortEarly: false,
+        // });
+
+        const response = await api.post(`/tags`, { serial: serial });
+
+        console.log(response.data);
+
+        Alert.alert("Sucesso!", "Sucesso ao criar a tag");
+
+        navigation.navigate("TagsStack", {
+          screen: "TagsCreated",
+        });
+      } catch (err) {
+        console.log(err);
+        // if (err instanceof Yup.ValidationError) {
+        //   const errors = getValidationErrors(err);
+
+        // Alert.alert(
+        //   "Erro ao criar convite",
+        //   "Ocorreu um erro ao tentar criar o convite, verifique todos os campos e tente novamente."
+        // );
+        return;
+        // }
+      }
+    }
+  }, [serial]);
 
   return (
     <Container>
@@ -58,20 +111,28 @@ const TagsAdd: React.FC = () => {
 
       <QRCodeAndAddTagContainer>
         <InputOrQrCodeContainer>
-          <InputTouachableOpacity
-            name="serial"
-            placeholder="Digite o serial ou escaneie o QR Code"
-          />
-          <QrCodeButton>
-            <Image source={qrcodeIcon} />
+          <QrCodeButton onPress={() => setIsOpen(!isOpen)}>
+            <QrCodeButtonContainer>
+              {hasSerial ? (
+                <QrCodeButtonText>{serial}</QrCodeButtonText>
+              ) : (
+                <QrCodeButtonText>Escaneie o QR Code</QrCodeButtonText>
+              )}
+
+              <Image source={qrcodeIcon} />
+              <Modal
+                visible={isOpen}
+                animationType="slide"
+                presentationStyle="overFullScreen"
+              >
+                <QRScanner onCodeScanned={onCodeScanned} />
+                <Button title="Cancelar" onPress={() => setIsOpen(!isOpen)} />
+              </Modal>
+            </QrCodeButtonContainer>
           </QrCodeButton>
         </InputOrQrCodeContainer>
-        <AddTag onPress={() => navigation.navigate("TagsAdd")}>
-          <AddTagText
-            style={{ color: "#fff", fontWeight: "bold", marginLeft: 16 }}
-          >
-            Adicionar tag
-          </AddTagText>
+        <AddTag onPress={handleCreateTag}>
+          <AddTagText>Adicionar Tag</AddTagText>
           <AddTagContainer>
             <Feather name="plus" size={30} color="#fff" />
           </AddTagContainer>

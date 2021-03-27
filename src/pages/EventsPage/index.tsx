@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from "react";
 import {
-  View,
-  Text,
   NativeScrollEvent,
   NativeSyntheticEvent,
   NativeScrollSize,
@@ -12,7 +10,15 @@ import Header from "../../components/Header";
 import Feather from "react-native-vector-icons/Feather";
 import { ScrollView } from "react-native-gesture-handler";
 import EventItem from "./EventItem";
-import { Container, Main, MainHeader, Line, EventList } from "./styles";
+import {
+  Container,
+  TitleContainer,
+  TitleText,
+  Main,
+  MainHeader,
+  Line,
+  EventList,
+} from "./styles";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import api from "../../services/api";
 import { useAccess } from "../../hooks/access";
@@ -79,7 +85,7 @@ const Events: React.FC = () => {
   };
 
   useEffect(() => {
-    async function getData() {
+    const getData = async () => {
       setLoading(true);
 
       const response = await api.get(`/devices/events`, {
@@ -92,7 +98,7 @@ const Events: React.FC = () => {
 
       setTotalPages(response.data.total_pages);
       setLoading(false);
-    }
+    };
 
     if (selected) {
       getData();
@@ -104,19 +110,19 @@ const Events: React.FC = () => {
       <Header />
       <Main>
         <MainHeader>
-          <View style={{ flexDirection: "row", alignItems: "center" }}>
+          <TitleContainer>
             <Feather
               name="bell"
               color="#F66253"
               size={24}
               style={{ marginRight: 8 }}
             />
-            <Text style={{ fontWeight: "bold", marginRight: 8 }}>Eventos</Text>
+            <TitleText>Eventos</TitleText>
 
             <TouchableOpacity>
               <Feather name="info" size={14} style={{ marginTop: 2 }} />
             </TouchableOpacity>
-          </View>
+          </TitleContainer>
         </MainHeader>
         <Line />
         <ScrollView
@@ -136,7 +142,7 @@ const Events: React.FC = () => {
             ))}
           </EventList>
         </ScrollView>
-        {loading && <ActivityIndicator color="#000" />}
+        {loading && <ActivityIndicator color="#ccc" />}
       </Main>
     </Container>
   );

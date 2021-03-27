@@ -1,15 +1,29 @@
-import styled, { css } from "styled-components/native";
+import styled from "styled-components/native";
 
 export const Container = styled.View`
   width: 100%;
   flex-direction: column;
 `;
 
-export const InviteContianer = styled.View`
+export const InviteContainer = styled.View`
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
   margin-bottom: 24px;
+`;
+
+export const InviteDescription = styled.View`
+  margin-left: 16px;
+`;
+
+export const InviteGuestName = styled.Text`
+  font-size: 14px;
+  font-weight: bold;
+`;
+
+export const InviteTypeName = styled.Text`
+  font-size: 12px;
+  color: #aaa;
 `;
 
 export const CreditCardBackground = styled.View`
@@ -61,4 +75,9 @@ export const UsesContainer = styled.View`
   justify-content: center;
   align-items: center;
   margin-right: 8px;
+`;
+
+export const UsesText = styled.Text`
+  font-size: 12px;
+  color: #aaa;
 `;

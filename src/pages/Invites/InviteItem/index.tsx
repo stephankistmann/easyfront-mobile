@@ -1,15 +1,17 @@
 import React from "react";
-import { Text } from "react-native";
 import Feather from "react-native-vector-icons/Feather";
 import {
   Container,
-  CreditCardBackground,
+  SendIconBackground,
   TrashBackground,
-  TextContainer,
+  InviteDescription,
+  InviteGuestText,
+  InviteTypeText,
   Dot,
   LeftContent,
   RightContent,
   UsesContainer,
+  UsesText,
 } from "./styles";
 
 interface IInviteTypes {
@@ -35,7 +37,7 @@ const InviteItem: React.FC<IInviteItemProps> = ({ invite, handleDelete }) => {
   return (
     <Container>
       <LeftContent>
-        <CreditCardBackground>
+        <SendIconBackground>
           <Dot hasUses={!!invite.uses} />
           <Feather
             name="send"
@@ -43,21 +45,17 @@ const InviteItem: React.FC<IInviteItemProps> = ({ invite, handleDelete }) => {
             color="#fff"
             style={{ position: "absolute", bottom: 10, left: 10 }}
           />
-        </CreditCardBackground>
-        <TextContainer>
-          <Text style={{ fontSize: 14, fontWeight: "bold" }}>
-            {invite.guest}
-          </Text>
-          <Text style={{ fontSize: 12, color: "#aaa" }}>
-            {invite.inviteType.name}
-          </Text>
-        </TextContainer>
+        </SendIconBackground>
+        <InviteDescription>
+          <InviteGuestText>{invite.guest}</InviteGuestText>
+          <InviteTypeText>{invite.inviteType.name}</InviteTypeText>
+        </InviteDescription>
       </LeftContent>
       <RightContent>
         <UsesContainer>
-          <Text style={{ fontSize: 12 }}>
+          <UsesText>
             {invite.uses} / {invite.uses_limit}
-          </Text>
+          </UsesText>
         </UsesContainer>
         <TrashBackground onPress={() => handleDelete(invite.id)}>
           <Feather name="trash-2" size={18} color="#0e0e2c" />

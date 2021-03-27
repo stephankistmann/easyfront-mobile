@@ -1,21 +1,26 @@
 import React, { useCallback, useEffect, useMemo, useState } from "react";
-import { View, Text, Alert, ActivityIndicator } from "react-native";
+import { Alert, ActivityIndicator } from "react-native";
 import Header from "../../components/Header";
 import Feather from "react-native-vector-icons/Feather";
 import * as Yup from "yup";
 import Input from "../../components/Input";
+import { Platform } from "react-native";
 import { ScrollView, TouchableOpacity } from "react-native-gesture-handler";
-import SelectDate from "../../components/SelectDate";
+import SelectDateAndroid from "../../components/SelectDate/index.android";
+import SelectDateIOS from "../../components/SelectDate/index.ios";
 import { removeDateSeconds } from "./helpers";
 import {
   Container,
   Main,
   MainHeader,
-  Title,
+  TitleContainer,
+  TitleText,
   Line,
   SubTitle,
   SubText,
-  AddTag,
+  CreateInviteButton,
+  CreateInviteButtonText,
+  CreateInvitePlusIconContainer,
   SelectInviteTypeText,
   SelectScheduleText,
   TimeRangeContainer,
@@ -49,6 +54,7 @@ interface IInviteType {
   weekDays: boolean[];
   uses_limit: string;
   expire_date: Date;
+  name: string;
 }
 
 const schema = Yup.object().shape({
@@ -121,10 +127,11 @@ const InvitesAdd: React.FC = () => {
         setInviteTypes(response.data.data);
         setSelectedInviteType(response.data.data[0]);
         setTimeRestrictions({
-          min: response.data.data.min_time,
-          max: response.data.data.max_time,
+          min: response.data.data[0].min_time.split(":").slice(0, 2).join(":"),
+          max: response.data.data[0].max_time.split(":").slice(0, 2).join(":"),
         });
       }
+
       setLoading(false);
     };
 
@@ -160,12 +167,13 @@ const InvitesAdd: React.FC = () => {
         params: { code: response.data.code },
       });
     } catch (err) {
+      console.log(err);
       if (err instanceof Yup.ValidationError) {
         const errors = getValidationErrors(err);
 
         Alert.alert(
           "Erro ao criar convite",
-          "Ocorreu um erro ao tentar criar o convite, tente novamente."
+          "Ocorreu um erro ao tentar criar o convite, verifique todos os campos e tente novamente."
         );
         return;
       }
@@ -181,17 +189,15 @@ const InvitesAdd: React.FC = () => {
         ) : (
           <Main>
             <MainHeader>
-              <Title>
+              <TitleContainer>
                 <Feather
                   name="send"
                   color="#F66253"
                   size={24}
                   style={{ marginRight: 8 }}
                 />
-                <Text style={{ fontWeight: "bold", marginRight: 8 }}>
-                  Criar convite
-                </Text>
-              </Title>
+                <TitleText>Criar convite</TitleText>
+              </TitleContainer>
               <SubTitle>
                 <SubText>
                   para {selected?.superUnit.name} {selected?.unit.name}
@@ -256,30 +262,26 @@ const InvitesAdd: React.FC = () => {
               allowedDays={selectedInviteType?.weekDays || []}
             />
             <ValidTilText>Válido até</ValidTilText>
-            <SelectDate
-              value={expire_date}
-              onChange={(value) => setExpire_date(value)}
-            />
+
+            {Platform.OS === "android" ? (
+              <SelectDateAndroid
+                value={expire_date}
+                onChange={(value) => setExpire_date(value)}
+              />
+            ) : (
+              <SelectDateIOS
+                value={expire_date}
+                onChange={(value) => setExpire_date(value)}
+              />
+            )}
           </Main>
         )}
-        <AddTag onPress={handleCreateInvite}>
-          <Text style={{ color: "#fff", fontWeight: "bold", marginLeft: 16 }}>
-            Criar um novo convite
-          </Text>
-          <View
-            style={{
-              backgroundColor: "#F0887E",
-              borderBottomRightRadius: 8,
-              borderTopRightRadius: 8,
-              height: 48,
-              width: 48,
-              justifyContent: "center",
-              alignItems: "center",
-            }}
-          >
+        <CreateInviteButton onPress={handleCreateInvite}>
+          <CreateInviteButtonText>Criar um novo convite</CreateInviteButtonText>
+          <CreateInvitePlusIconContainer>
             <Feather name="plus" size={30} color="#fff" />
-          </View>
-        </AddTag>
+          </CreateInvitePlusIconContainer>
+        </CreateInviteButton>
       </ScrollView>
     </Container>
   );

@@ -12,9 +12,14 @@ export const Main = styled.View`
 
 export const MainHeader = styled.View``;
 
-export const Title = styled.View`
+export const TitleContainer = styled.View`
   flex-direction: row;
   align-items: center;
+`;
+
+export const TitleText = styled.Text`
+  font-weight: bold;
+  margin-right: 8px;
 `;
 
 export const SubTitle = styled.View`
@@ -36,7 +41,7 @@ export const SubText = styled.Text`
   color: #aaa;
 `;
 
-export const AddTag = styled.TouchableOpacity`
+export const CreateInviteButton = styled.TouchableOpacity`
   justify-content: space-between;
   align-items: center;
   flex-direction: row;
@@ -45,6 +50,22 @@ export const AddTag = styled.TouchableOpacity`
   border-radius: 8px;
   height: 48px;
   margin-top: 0;
+`;
+
+export const CreateInviteButtonText = styled.Text`
+  color: #fff;
+  font-weight: bold;
+  margin-left: 16px;
+`;
+
+export const CreateInvitePlusIconContainer = styled.View`
+  background-color: #f0887e;
+  border-bottom-right-radius: 8px;
+  border-top-right-radius: 8px;
+  height: 48px;
+  width: 48px;
+  justify-content: center;
+  align-items: center;
 `;
 
 export const History = styled.TouchableOpacity`

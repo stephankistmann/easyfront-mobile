@@ -4,6 +4,7 @@ import Feather from "react-native-vector-icons/Feather";
 import {
   Container,
   CreditCardBackground,
+  Serial,
   TrashBackground,
   InviteContianer,
 } from "./styles";
@@ -21,7 +22,7 @@ const TagItem: React.FC<ITags> = ({ id, serial, handleDelete }) => {
         <CreditCardBackground>
           <Feather name="credit-card" size={24} color="#fff" />
         </CreditCardBackground>
-        <Text style={{ fontSize: 12 }}>{serial}</Text>
+        <Serial>{serial}</Serial>
         <TrashBackground onPress={() => handleDelete(id)}>
           <Feather name="trash-2" size={18} color="#0e0e2c" />
         </TrashBackground>

@@ -1,6 +1,5 @@
 import React, { useCallback, useEffect, useState } from "react";
 import {
-  View,
   Text,
   Alert,
   NativeSyntheticEvent,
@@ -13,7 +12,15 @@ import Header from "../../components/Header";
 import Feather from "react-native-vector-icons/Feather";
 import { ScrollView } from "react-native-gesture-handler";
 import DeviceItem from "./DeviceItem";
-import { Container, Main, MainHeader, Line, DeviceList } from "./styles";
+import {
+  Container,
+  TitleContainer,
+  TitleText,
+  Main,
+  MainHeader,
+  Line,
+  DeviceList,
+} from "./styles";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import api from "../../services/api";
 import { useAccess } from "../../hooks/access";
@@ -72,7 +79,7 @@ const Devices: React.FC = () => {
   };
 
   useEffect(() => {
-    async function getData() {
+    const getData = async () => {
       setLoading(true);
       if (selected) {
         const response = await api.get(`/accesses/${selected.id}/devices`, {
@@ -88,7 +95,7 @@ const Devices: React.FC = () => {
         console.log(selected.id);
       }
       setLoading(false);
-    }
+    };
 
     getData();
   }, [selected, page]);
@@ -125,21 +132,19 @@ const Devices: React.FC = () => {
       <Header />
       <Main>
         <MainHeader>
-          <View style={{ flexDirection: "row", alignItems: "center" }}>
+          <TitleContainer>
             <Feather
               name="tablet"
               color="#F66253"
               size={24}
               style={{ marginRight: 8 }}
             />
-            <Text style={{ fontWeight: "bold", marginRight: 8 }}>
-              Dispositivos
-            </Text>
+            <TitleText>Dispositivos</TitleText>
 
             <TouchableOpacity>
               <Feather name="info" size={14} style={{ marginTop: 2 }} />
             </TouchableOpacity>
-          </View>
+          </TitleContainer>
         </MainHeader>
         <Line />
         <ScrollView
@@ -157,7 +162,7 @@ const Devices: React.FC = () => {
             ))}
           </DeviceList>
         </ScrollView>
-        {loading && <ActivityIndicator color="#000" />}
+        {loading && <ActivityIndicator color="#ccc" />}
       </Main>
     </Container>
   );

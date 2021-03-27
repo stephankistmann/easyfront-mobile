@@ -54,6 +54,12 @@ export const AvatarPlaceholder = styled.View`
   justify-content: center;
 `;
 
+export const AvatarPlaceholderText = styled.Text`
+  font-weight: bold;
+  font-size: 20px;
+  color: #fff;
+`;
+
 export const GreenDot = styled.View`
   position: absolute;
   background: #82d888;

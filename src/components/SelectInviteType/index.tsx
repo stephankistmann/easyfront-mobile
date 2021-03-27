@@ -11,6 +11,7 @@ interface IInviteType {
   weekDays: boolean[];
   uses_limit: string;
   expire_date: Date;
+  name: string;
 }
 
 interface IProps {

@@ -16,6 +16,14 @@ export const Title = styled.View`
   align-items: center;
 `;
 
+export const TitleText = styled.Text`
+  color: #0e0e2c;
+  font-weight: bold;
+  margin-left: 8px;
+  margin-top: 2px;
+  font-size: 16px;
+`;
+
 export const Line = styled.View`
   width: 100%;
   height: 1px;
@@ -64,6 +72,17 @@ export const AvatarPlaceholder = styled.View`
   justify-content: center;
 `;
 
+export const AvatarPlaceholderText = styled.Text`
+  font-size: 32px;
+  color: #fff;
+`;
+
+export const UserName = styled.Text`
+  margin-top: 16px;
+  margin-bottom: 24px;
+  font-weight: bold;
+`;
+
 export const SelectGenderNature = styled(Picker)``;
 
 export const SelectContainer = styled.View`
@@ -80,6 +99,8 @@ export const SelectContainer = styled.View`
   flex-direction: row;
   justify-content: space-between;
 `;
+
+export const SelectText = styled.Text``;
 
 export const ChevronDown = styled(Feather)`
   position: absolute;

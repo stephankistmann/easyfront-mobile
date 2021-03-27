@@ -12,7 +12,7 @@ export const Container = styled.View`
   margin-bottom: 24px;
 `;
 
-export const CreditCardBackground = styled.View`
+export const SendIconBackground = styled.View`
   height: 44px;
   width: 44px;
   background: #0e0e2c;
@@ -38,8 +38,18 @@ export const Dot = styled.View<DotProps>`
     `}
 `;
 
-export const TextContainer = styled.View`
+export const InviteDescription = styled.View`
   margin-left: 16px;
+`;
+
+export const InviteGuestText = styled.Text`
+  font-size: 14px;
+  font-weight: bold;
+`;
+
+export const InviteTypeText = styled.Text`
+  font-size: 12px;
+  color: #aaa;
 `;
 
 export const TrashBackground = styled.TouchableOpacity`
@@ -67,4 +77,8 @@ export const UsesContainer = styled.View`
   justify-content: center;
   align-items: center;
   margin-right: 8px;
+`;
+
+export const UsesText = styled.Text`
+  font-size: 12px;
 `;

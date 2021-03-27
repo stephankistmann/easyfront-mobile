@@ -16,7 +16,7 @@ export const Container = styled.View`
   top: 0;
 `;
 
-export const OkButtonContainer = styled.View`
+export const OkButtonContainer = styled.TouchableOpacity`
   align-self: center;
   justify-content: center;
   align-items: center;

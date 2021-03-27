@@ -1,5 +1,5 @@
 import React from "react";
-import { Image, Text, View } from "react-native";
+import { Image } from "react-native";
 import { Feather } from "@expo/vector-icons";
 import { useAuth } from "../../hooks/auth";
 import Header from "../../components/Header";
@@ -110,7 +110,13 @@ const Home: React.FC = () => {
                   <ShortCutsContainerText>DISPOSITIVOS</ShortCutsContainerText>
                 </ShortCut>
 
-                <ShortCut onPress={() => navigation.navigate("Tags")}>
+                <ShortCut
+                  onPress={() =>
+                    navigation.navigate("TagsStack", {
+                      screen: "Tags",
+                    })
+                  }
+                >
                   <ShortCutIconBg>
                     <Feather
                       name="credit-card"

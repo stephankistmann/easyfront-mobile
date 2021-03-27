@@ -9,7 +9,7 @@ interface IContentProps {
 
 export const Container = styled.View`
   position: relative;
-  height: 40px;
+  height: 46px;
 `;
 
 export const SubContainer = styled.View`
@@ -22,7 +22,7 @@ export const SubContainer = styled.View`
 export const Content = styled.TouchableOpacity<IContentProps>`
   background: #dedede;
   border-radius: 8px;
-  height: 40px;
+  height: 46px;
   align-items: center;
   justify-content: center;
   margin-right: 8px;

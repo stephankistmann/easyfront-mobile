@@ -4,6 +4,16 @@ export const Container = styled.View`
   flex: 1;
 `;
 
+export const TitleContainer = styled.View`
+  flex-direction: row;
+  align-items: center;
+`;
+
+export const TitleText = styled.Text`
+  font-weight: bold;
+  margin-right: 8px;
+`;
+
 export const Main = styled.View`
   flex: 1;
   margin: 24px;

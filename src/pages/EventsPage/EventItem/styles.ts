@@ -41,8 +41,18 @@ export const Arrow = styled.View<ArrowProps>`
     `}
 `;
 
-export const TextContainer = styled.View`
+export const NameContainer = styled.View`
   margin-left: 16px;
+`;
+
+export const NameText = styled.Text`
+  font-size: 14px;
+  font-weight: bold;
+`;
+
+export const DateText = styled.Text`
+  font-size: 12px;
+  color: #aaa;
 `;
 
 export const PhotoIconBackground = styled.TouchableOpacity`

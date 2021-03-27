@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from "react";
 import {
-  View,
-  Text,
   NativeSyntheticEvent,
   NativeScrollEvent,
   NativeScrollSize,
@@ -15,6 +13,7 @@ import {
   Container,
   Main,
   MainHeader,
+  TitleText,
   Line,
   TagList,
   AddTag,
@@ -81,16 +80,16 @@ const Tags: React.FC = () => {
     }
   };
 
-  async function handleDelete(id: string) {
+  const handleDelete = async (id: string) => {
     const deleteTag = tags.find((tag) => tag.id === id);
 
     await api.delete(`/tags/${deleteTag?.id}`);
 
     setTags((oldTag) => oldTag.filter((tag) => tag.id !== id));
-  }
+  };
 
   useEffect(() => {
-    async function getData() {
+    const getData = async () => {
       setLoading(true);
 
       const response = await api.get(`/tags`, {
@@ -103,7 +102,7 @@ const Tags: React.FC = () => {
 
       setTotalPages(response.data.total_pages);
       setLoading(false);
-    }
+    };
 
     if (selected) {
       getData();
@@ -121,9 +120,7 @@ const Tags: React.FC = () => {
             size={24}
             style={{ marginRight: 8 }}
           />
-          <Text style={{ fontWeight: "bold", marginRight: 8 }}>
-            Minhas Tags
-          </Text>
+          <TitleText>Minhas Tags</TitleText>
           <TouchableOpacity>
             <Feather name="info" size={14} style={{ marginTop: 2 }} />
           </TouchableOpacity>
@@ -144,7 +141,7 @@ const Tags: React.FC = () => {
             ))}
           </TagList>
         </ScrollView>
-        {loading && <ActivityIndicator color="#000" />}
+        {loading && <ActivityIndicator color="#ccc" />}
       </Main>
       <AddTag onPress={() => navigation.navigate("TagsAdd")}>
         <AddTagText>Adicionar tag</AddTagText>

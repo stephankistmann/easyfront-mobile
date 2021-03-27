@@ -12,9 +12,11 @@ import {
   Container,
   Header,
   Profile,
+  ProfileText,
   Avatar,
   AvatarBorder,
   AvatarPlaceholder,
+  AvatarPlaceholderText,
   Menu,
   Line,
   Logout,
@@ -45,20 +47,12 @@ const SideMenu: React.FC<ISideMenuProps> = ({ navigation, ...props }) => {
               ) : (
                 <AvatarBorder>
                   <AvatarPlaceholder>
-                    <Text
-                      style={{
-                        fontWeight: "bold",
-                        fontSize: 28,
-                        color: "#fff",
-                      }}
-                    >
-                      {initials}
-                    </Text>
+                    <AvatarPlaceholderText>{initials}</AvatarPlaceholderText>
                   </AvatarPlaceholder>
                 </AvatarBorder>
               )}
 
-              <Text style={{ marginTop: 20 }}>{user.name}</Text>
+              <ProfileText>{user.name}</ProfileText>
 
               <SuperUnitSelect />
             </Profile>

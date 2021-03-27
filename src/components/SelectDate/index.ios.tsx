@@ -1,7 +1,6 @@
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Platform } from "react-native";
-import { Container, ShowDatePickerButton, ShowDatePickerText } from "./styles";
-import DateTimePicker from "@react-native-community/datetimepicker";
+import { ContainerIOS, DateTimePickerIOS } from "./styles";
 import Feather from "react-native-vector-icons/Feather";
 import { format } from "date-fns";
 import { ptBR } from "date-fns/locale";
@@ -11,10 +10,10 @@ interface ISelectDate {
   onChange: (obj: any) => void;
 }
 
-const SelectDate: React.FC<ISelectDate> = ({ value, onChange }) => {
+const SelectDateIOS: React.FC<ISelectDate> = ({ value, onChange }) => {
   const [date, setDate] = useState(value);
   const [mode, setMode] = useState("date");
-  const [show, setShow] = useState(false);
+  const [show, setShow] = useState(true);
 
   const formattedDate = format(date, "'Dia' dd 'de' MMMM'", {
     locale: ptBR,
@@ -40,25 +39,21 @@ const SelectDate: React.FC<ISelectDate> = ({ value, onChange }) => {
   };
 
   return (
-    <Container>
-      <Container>
-        <ShowDatePickerButton onPress={showDatepicker}>
-          <Feather name="calendar" size={18} />
-          <ShowDatePickerText>{formattedDate}</ShowDatePickerText>
-        </ShowDatePickerButton>
-      </Container>
+    <ContainerIOS>
+      <Feather name="calendar" size={18} />
+
       {show && (
-        <DateTimePicker
+        <DateTimePickerIOS
           testID="dateTimePicker"
           value={date}
           is24Hour={true}
           display="default"
-          onChange={onChangeData}
+          onChange={() => onChangeData}
           mode={mode}
         />
       )}
-    </Container>
+    </ContainerIOS>
   );
 };
 
-export default SelectDate;
+export default SelectDateIOS;

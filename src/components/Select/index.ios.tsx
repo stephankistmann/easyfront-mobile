@@ -1,5 +1,4 @@
 import React, { useCallback, useState } from "react";
-import { TouchableOpacity } from "react-native";
 import { Picker } from "@react-native-community/picker";
 import { Container, Content, Modal, OkText, OkButtonContainer } from "./styles";
 import Feather from "react-native-vector-icons/Feather";
@@ -53,14 +52,15 @@ const SelectIOS: React.FC<SelectProps> = ({ value, options, onChange }) => {
                 <Picker.Item
                   key={option.id}
                   value={option.id}
-                  label={option.label || (option.unit.name && option.unit.name)}
+                  label={
+                    option.label ||
+                    option.superUnit?.name + " - " + option.unit?.name
+                  }
                 ></Picker.Item>
               ))}
           </Picker>
-          <OkButtonContainer>
-            <TouchableOpacity onPress={() => setIsOpen(!isOpen)}>
-              <OkText>Ok</OkText>
-            </TouchableOpacity>
+          <OkButtonContainer onPress={() => setIsOpen(!isOpen)}>
+            <OkText>Ok</OkText>
           </OkButtonContainer>
         </Modal>
       </Content>
