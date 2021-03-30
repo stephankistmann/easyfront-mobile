@@ -45,6 +45,7 @@ const Tags: React.FC = () => {
   const [loading, setLoading] = useState(true);
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
+  const [isFocused, setIsFocused] = useState(false);
 
   const handleScroll = ({
     nativeEvent,
@@ -98,7 +99,11 @@ const Tags: React.FC = () => {
 
       if (!response) return;
 
-      setTags((oldTags) => [...oldTags, ...response.data.data]);
+      if (page === 1) {
+        setTags(response.data.data);
+      } else {
+        setTags((oldTags) => [...oldTags, ...response.data.data]);
+      }
 
       setTotalPages(response.data.total_pages);
       setLoading(false);
@@ -107,7 +112,22 @@ const Tags: React.FC = () => {
     if (selected) {
       getData();
     }
-  }, [page, selected]);
+  }, [page, selected, isFocused]);
+
+  useEffect(() => {
+    const handleFocus = () => {
+      setPage(1);
+      setIsFocused(true);
+    };
+
+    const handleBlur = () => {
+      setIsFocused(false);
+    };
+
+    navigation.addListener("focus", handleFocus);
+
+    navigation.addListener("blur", handleBlur);
+  }, [navigation]);
 
   return (
     <Container>

@@ -57,6 +57,7 @@ const Invites: React.FC = () => {
   const [invites, setInvites] = useState<IInvites[]>([]);
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
+  const [isFocused, setIsFocused] = useState(false);
 
   const handleScroll = ({
     nativeEvent,
@@ -110,17 +111,36 @@ const Invites: React.FC = () => {
 
         if (!response) return;
 
-        setInvites((oldInvites) => [...oldInvites, ...response.data.data]);
+        if (page === 1) {
+          setInvites(response.data.data);
+        } else {
+          setInvites((oldInvites) => [...oldInvites, ...response.data.data]);
+        }
 
         setTotalPages(response.data.total_pages);
+        setLoading(false);
       }
-      setLoading(false);
     };
 
     if (selected) {
       getData();
     }
-  }, [selected, page]);
+  }, [selected, page, isFocused]);
+
+  useEffect(() => {
+    const handleFocus = () => {
+      setPage(1);
+      setIsFocused(true);
+    };
+
+    const handleBlur = () => {
+      setIsFocused(false);
+    };
+
+    navigation.addListener("focus", handleFocus);
+
+    navigation.addListener("blur", handleBlur);
+  }, [navigation]);
 
   return (
     <Container>
