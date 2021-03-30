@@ -14,7 +14,6 @@ const Restricted = createDrawerNavigator();
 const RestrictedRoutes: React.FC = () => (
   <Restricted.Navigator
     sceneContainerStyle={{
-      // backgroundColor: "#EAEAEE",
       backgroundColor: "#FFF",
     }}
     initialRouteName="Home"

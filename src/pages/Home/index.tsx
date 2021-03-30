@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Image } from "react-native";
 import { Feather } from "@expo/vector-icons";
 import { useAuth } from "../../hooks/auth";
@@ -21,6 +21,7 @@ import {
 import logo from "../../assets/logo.png";
 import { ScrollView, TouchableOpacity } from "react-native-gesture-handler";
 import { useNavigation } from "@react-navigation/native";
+import { useAccess } from "../../hooks/access";
 
 const Home: React.FC = () => {
   const { user } = useAuth();

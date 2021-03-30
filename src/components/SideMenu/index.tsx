@@ -1,5 +1,5 @@
 import React, { useMemo } from "react";
-import { Text, Image, SafeAreaView } from "react-native";
+import { Text, SafeAreaView } from "react-native";
 import {
   DrawerContentComponentProps,
   DrawerContentOptions,

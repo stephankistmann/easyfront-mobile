@@ -1,6 +1,5 @@
 import React, { useCallback, useEffect, useState } from "react";
 import {
-  Image,
   KeyboardAvoidingView,
   Platform,
   ScrollView,
@@ -14,7 +13,13 @@ import Button from "../../components/Button";
 import { useAuth } from "../../hooks/auth";
 
 import logo from "../../assets/logo.png";
-import { Container, Title, ForgotPassword, ForgotPasswordText } from "./styles";
+import {
+  Container,
+  Title,
+  Image,
+  ForgotPassword,
+  ForgotPasswordText,
+} from "./styles";
 import { useNavigation } from "@react-navigation/native";
 
 interface ISignInFormData {

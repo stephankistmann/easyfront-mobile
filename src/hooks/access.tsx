@@ -1,7 +1,7 @@
-import { useNavigation } from "@react-navigation/native";
 import React, { createContext, useContext, useEffect, useState } from "react";
 import api from "../services/api";
 import { useAuth } from "./auth";
+import { navigate } from "../../RootNavigation";
 
 interface ISuperUnit {
   id: string;
@@ -40,7 +40,6 @@ const AccessProvider: React.FC = ({ children }) => {
   const [accesses, setAccesses] = useState<IAccess[]>([]);
   const [selected, setSelected] = useState<IAccess>();
   const [loading, setLoading] = useState(true);
-  const navigation = useNavigation();
 
   async function selectAccess(id: string) {
     setSelected(accesses.find((access) => access.id === id));
@@ -59,7 +58,7 @@ const AccessProvider: React.FC = ({ children }) => {
       setAccesses(filteredAccesses);
 
       if (filteredAccesses.length === 0) {
-        navigation.navigate("DefaultError");
+        navigate("DefaultError", {});
       }
 
       setSelected(filteredAccesses[0]);
